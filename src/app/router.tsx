@@ -1,18 +1,28 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { DashboardLayout } from "@/layouts/DashboardLayout";
 
-import DashboardLayout from "../layouts/DashboardLayout";
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const DashboardPage = lazy(() => import("@/pages/Dashboard"));
+const AnalyticsPage = lazy(() => import("@/pages/Analytics"));
+const UsersPage = lazy(() => import("@/pages/Users"));
+const PricingPage = lazy(() => import("@/pages/Pricing"));
+const SettingsPage = lazy(() => import("@/pages/Settings"));
 
-import LoginPage from "../pages/LoginPage";
-import DashboardPage from "@/pages/Dashboard";
-import AnalyticsPage from "@/pages/Analytics";
-import UsersPage from "@/pages/Users";
-import PricingPage from "@/pages/Pricing";
-import SettingsPage from "@/pages/Settings";
+const PageLoader = () => (
+  <div className="flex h-screen items-center justify-center">
+    <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+  </div>
+);
 
 export const router = createBrowserRouter([
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <Suspense fallback={<PageLoader />}>
+        <LoginPage />
+      </Suspense>
+    ),
   },
   {
     path: "/",
@@ -24,23 +34,43 @@ export const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <DashboardPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <DashboardPage />
+          </Suspense>
+        ),
       },
       {
         path: "analytics",
-        element: <AnalyticsPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <AnalyticsPage />
+          </Suspense>
+        ),
       },
       {
         path: "users",
-        element: <UsersPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <UsersPage />
+          </Suspense>
+        ),
       },
       {
         path: "pricing",
-        element: <PricingPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <PricingPage />
+          </Suspense>
+        ),
       },
       {
         path: "settings",
-        element: <SettingsPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <SettingsPage />
+          </Suspense>
+        ),
       },
     ],
   },
