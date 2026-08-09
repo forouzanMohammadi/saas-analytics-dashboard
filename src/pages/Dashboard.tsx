@@ -1,3 +1,5 @@
+import { MetricCard } from "@/components/shared/MetricCard";
+
 const stats = [
   {
     title: "Revenue",
@@ -42,6 +44,26 @@ export default function DashboardPage() {
             </h2>
           </div>
         ))}
+        <div className="grid grid-cols-1 gap-6">
+          <MetricCard
+            title="Simple"
+            value={84210}
+          />
+
+          <MetricCard
+            title="With trend badge"
+            value={12480}
+            variant="trend"
+            trend={{ value: "5.6%", isPositive: true }}
+          />
+
+          <MetricCard
+            title="With sparkline"
+            value="3.9%"
+            variant="sparkline"
+            sparklineData={[12, 18, 15, 22, 19, 25, 23, 28, 26, 30]}
+          />
+        </div>
       </div>
     </div>
   );

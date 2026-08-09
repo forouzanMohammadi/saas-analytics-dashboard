@@ -2,7 +2,7 @@ import { Bell } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="flex h-[72px] shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6">
+    <header className="flex h-18 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6">
       {/* Left - Page Title */}
       <h1 className="text-xl font-semibold text-slate-800">Dashboard</h1>
 

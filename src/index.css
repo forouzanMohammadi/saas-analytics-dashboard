@@ -8,3 +8,30 @@
 body{
     font-family: "Inter", sans-serif;
 }
+
+:root {
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --border: #E7E4F2;
+  --text: #1E1B2E;                 
+  --text-secondary: #6B6880;       
+  --text-muted: #A5A2B8;          
+  --primary: #6C5CE7;              
+  --primary-dark: #4433A8;      
+  --primary-light: #A599E0;       
+  --primary-lighter: #8776D3;   
+  --primary-soft: #C3BBEB;        
+  --primary-bg: #F0EEFA;          
+  --primary-tooltip: #241A5C;     
+  --success: #16A34A;             
+  --success-bg: #E8F8EE;          
+  --warning: #D97706;             
+  --warning-text: #854F0B;       
+  --warning-bg: #FEF6E7;         
+  --danger: #DC2626;   
+  --danger-bg: #FDEBEC;         
+  --disabled-text: #DBD9E2;
+  --disabled-bg: #E8E7EC;
+  --search-bg: #F6F5FB; 
+  --avatar-bg: #E1DDF5; 
+}
