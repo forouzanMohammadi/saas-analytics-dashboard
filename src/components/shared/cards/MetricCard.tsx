@@ -31,7 +31,6 @@ export function MetricCard({
   return (
     <Card
       className={cn(
-        // حذف ring پیش‌فرض shadcn + اعمال border دلخواه
         "border border-(--border) bg-white shadow-none rounded-2xl ring-0",
         className
       )}
