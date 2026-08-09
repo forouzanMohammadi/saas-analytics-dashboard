@@ -1,4 +1,3 @@
-// src/layouts/AuthLayout.tsx
 import * as React from "react"
 import { Link } from "react-router-dom"
 
@@ -12,7 +11,7 @@ export interface AuthLayoutProps {
 function AuthLayout({ title, subtitle, children, footer }: AuthLayoutProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-(--background) px-4 py-10">
-      <div className="w-full max-w-[380px]">
+      <div className="w-full max-w-95">
         <Link to="/" className="mb-8 flex items-center justify-center gap-2.5">
           <svg width="34" height="34" viewBox="0 0 52 52">
             <rect width="52" height="52" rx="16" fill="var(--primary-bg)" />

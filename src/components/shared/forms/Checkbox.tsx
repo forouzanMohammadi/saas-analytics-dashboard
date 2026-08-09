@@ -1,4 +1,3 @@
-// src/components/shared/Checkbox.tsx
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox"
 import { Check } from "lucide-react"
 

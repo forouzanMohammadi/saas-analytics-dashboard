@@ -1,6 +1,3 @@
-// src/components/shared/Tabs.tsx
-import * as React from "react"
-
 import { cn } from "@/lib/utils"
 
 export interface TabItem {
@@ -20,7 +17,7 @@ function Tabs({ items, value, onChange, className }: TabsProps) {
     <div
       role="tablist"
       className={cn(
-        "inline-flex items-center gap-0.5 rounded-[10px] bg-[var(--search-bg)] p-[3px]",
+        "inline-flex items-center gap-0.5 rounded-[10px] bg-(--search-bg) p-0.75",
         className
       )}
     >
@@ -34,10 +31,10 @@ function Tabs({ items, value, onChange, className }: TabsProps) {
             aria-selected={active}
             onClick={() => onChange(item.value)}
             className={cn(
-              "rounded-[8px] px-3.5 py-1.5 text-[12.5px] font-medium transition-colors",
+              "rounded-lg px-3.5 py-1.5 text-[12.5px] font-medium transition-colors",
               active
-                ? "bg-[var(--surface)] text-[var(--text)] shadow-[0_1px_3px_rgba(30,27,46,0.08)]"
-                : "text-[var(--text-secondary)] hover:text-[var(--text)]"
+                ? "bg-(--surface) text-(--text) shadow-[0_1px_3px_rgba(30,27,46,0.08)]"
+                : "text-(--text-secondary) hover:text-(--text)"
             )}
           >
             {item.label}

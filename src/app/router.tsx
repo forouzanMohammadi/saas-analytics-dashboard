@@ -1,4 +1,3 @@
-// src/app/router.tsx
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { DashboardLayout } from "@/layouts/DashboardLayout";

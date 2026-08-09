@@ -1,4 +1,3 @@
-// src/components/shared/TagInput.tsx
 import * as React from "react"
 import { X } from "lucide-react"
 
@@ -40,16 +39,16 @@ function TagInput({ value, onChange, placeholder = "Add...", className, disabled
     <div
       data-slot="tag-input"
       className={cn(
-        "flex flex-wrap items-center gap-1.5 rounded-[9px] border-[1.5px] border-[var(--border)] bg-[var(--surface)] px-2.5 py-1.5 transition-colors",
-        "focus-within:border-[var(--primary)] focus-within:ring-3 focus-within:ring-[var(--primary)]/20",
-        disabled && "cursor-not-allowed bg-[var(--search-bg)] opacity-70",
+        "flex flex-wrap items-center gap-1.5 rounded-[9px] border-[1.5px] border-(--border) bg-(--surface) px-2.5 py-1.5 transition-colors",
+        "focus-within:border-(--primary) focus-within:ring-3 focus-within:ring-(--primary)/20",
+        disabled && "cursor-not-allowed bg-(--search-bg) opacity-70",
         className
       )}
     >
       {value.map((tag) => (
         <span
           key={tag}
-          className="flex items-center gap-1 rounded-[7px] bg-[var(--primary-bg)] px-2 py-1 text-[11.5px] font-medium text-[var(--primary-dark)]"
+          className="flex items-center gap-1 rounded-[7px] bg-(--primary-bg) px-2 py-1 text-[11.5px] font-medium text-(--primary-dark)"
         >
           {tag}
           {!disabled && (
@@ -71,7 +70,7 @@ function TagInput({ value, onChange, placeholder = "Add...", className, disabled
         onBlur={addTag}
         disabled={disabled}
         placeholder={value.length === 0 ? placeholder : ""}
-        className="min-w-[80px] flex-1 bg-transparent text-sm text-[var(--text)] outline-none placeholder:text-[var(--text-muted)] disabled:cursor-not-allowed"
+        className="min-w-20 flex-1 bg-transparent text-sm text-(--text) outline-none placeholder:text-(--text-muted) disabled:cursor-not-allowed"
       />
     </div>
   )

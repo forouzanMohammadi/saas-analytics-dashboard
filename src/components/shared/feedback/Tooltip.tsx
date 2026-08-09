@@ -1,4 +1,3 @@
-// src/components/shared/Tooltip.tsx
 import * as React from "react"
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip"
 
@@ -24,7 +23,7 @@ function Tooltip({ children, content, title, side = "top", className }: TooltipP
         <TooltipPrimitive.Positioner side={side} sideOffset={8}>
           <TooltipPrimitive.Popup
             className={cn(
-              "z-50 max-w-[200px] rounded-lg bg-[var(--primary-tooltip)] px-3 py-2 text-white shadow-md",
+              "z-50 max-w-50 rounded-lg bg-(--primary-tooltip) px-3 py-2 text-white shadow-md",
               className
             )}
           >
@@ -36,7 +35,7 @@ function Tooltip({ children, content, title, side = "top", className }: TooltipP
             ) : (
               <p className="text-[11.5px] whitespace-nowrap">{content}</p>
             )}
-            <TooltipPrimitive.Arrow className="fill-[var(--primary-tooltip)]" />
+            <TooltipPrimitive.Arrow className="fill-(--primary-tooltip)" />
           </TooltipPrimitive.Popup>
         </TooltipPrimitive.Positioner>
       </TooltipPrimitive.Portal>

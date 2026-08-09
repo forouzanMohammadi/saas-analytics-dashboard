@@ -1,4 +1,3 @@
-// src/components/shared/Textarea.tsx
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -18,16 +17,16 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-invalid={!!error}
           rows={rows}
           className={cn(
-            "w-full resize-none rounded-[9px] border-[1.5px] border-[var(--border)] bg-[var(--surface)] px-3 py-2.5 text-sm text-[var(--text)] outline-none transition-colors",
-            "placeholder:text-[var(--text-muted)]",
-            "focus-visible:border-[var(--primary)] focus-visible:ring-3 focus-visible:ring-[var(--primary)]/20",
-            "aria-invalid:border-[var(--danger)] aria-invalid:focus-visible:ring-[var(--danger)]/20",
-            "disabled:cursor-not-allowed disabled:border-[var(--border)] disabled:bg-[var(--search-bg)] disabled:text-[var(--text-muted)]",
+            "w-full resize-none rounded-[9px] border-[1.5px] border-(--border) bg-(--surface) px-3 py-2.5 text-sm text-(--text) outline-none transition-colors",
+            "placeholder:text-(--text-muted)",
+            "focus-visible:border-(--primary) focus-visible:ring-3 focus-visible:ring-(--primary)/20",
+            "aria-invalid:border-(--danger) aria-invalid:focus-visible:ring-(--danger)/20",
+            "disabled:cursor-not-allowed disabled:border-(--border) disabled:bg-(--search-bg) disabled:text-(--text-muted)",
             className
           )}
           {...props}
         />
-        {error ? <p className="text-xs text-[var(--danger)]">{error}</p> : null}
+        {error ? <p className="text-xs text-(--danger)">{error}</p> : null}
       </div>
     )
   }

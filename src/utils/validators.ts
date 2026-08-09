@@ -1,4 +1,3 @@
-// src/utils/validators.ts
 export function validateEmail(value: string): string | undefined {
   if (!value.trim()) return "Email is required."
   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)

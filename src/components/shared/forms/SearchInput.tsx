@@ -1,4 +1,3 @@
-// src/components/shared/SearchInput.tsx
 import * as React from "react"
 import { Search } from "lucide-react"
 

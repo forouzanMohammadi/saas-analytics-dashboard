@@ -1,4 +1,3 @@
-// src/components/shared/PasswordInput.tsx
 import * as React from "react"
 import { Eye, EyeOff } from "lucide-react"
 
@@ -18,7 +17,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>((pr
           type="button"
           tabIndex={-1}
           onClick={() => setVisible((v) => !v)}
-          className="pointer-events-auto flex text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
+          className="pointer-events-auto flex text-(--text-muted) hover:text-(--text-secondary)"
           aria-label={visible ? "Hide password" : "Show password"}
         >
           {visible ? <EyeOff /> : <Eye />}

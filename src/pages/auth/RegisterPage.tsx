@@ -1,4 +1,3 @@
-// src/pages/auth/RegisterPage.tsx
 import * as React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Mail, User } from "lucide-react"
@@ -65,15 +64,11 @@ export default function RegisterPage() {
     setLoading(true)
 
     try {
-      // TODO: replace with your real signup API call.
-      // New accounts should default to the least-privileged role;
-      // an admin promotes them later from the Users page.
       await new Promise((resolve) => setTimeout(resolve, 800))
 
       login({ id: crypto.randomUUID(), name, email, role: "user" }, "mock-jwt-token")
       toast.success("Account created", `Welcome, ${name}!`)
 
-      // brief pause so the success toast is visible before the page swaps
       await new Promise((resolve) => setTimeout(resolve, 600))
       navigate("/dashboard", { replace: true })
     } catch {

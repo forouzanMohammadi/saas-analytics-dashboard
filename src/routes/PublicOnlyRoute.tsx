@@ -1,4 +1,3 @@
-// src/routes/PublicOnlyRoute.tsx
 import type { ReactNode } from "react"
 import { Navigate } from "react-router-dom"
 

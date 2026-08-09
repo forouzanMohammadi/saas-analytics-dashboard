@@ -1,4 +1,3 @@
-// src/components/shared/FileUpload.tsx
 import * as React from "react"
 import { Upload } from "lucide-react"
 
@@ -46,14 +45,14 @@ function FileUpload({
       data-slot="file-upload"
       className={cn(
         "flex cursor-pointer items-center gap-2 rounded-[9px] border-[1.5px] border-dashed px-3.5 py-2.5 transition-colors",
-        "bg-[var(--search-bg)] border-[var(--border)]",
-        isDragging && "border-[var(--primary)] bg-[var(--primary-bg)]",
+        "bg-(--search-bg) border-(--border)",
+        isDragging && "border-(--primary) bg-(--primary-bg)",
         disabled && "cursor-not-allowed opacity-60",
         className
       )}
     >
-      <Upload size={16} className="text-[var(--text-secondary)]" />
-      <span className="text-[13px] text-[var(--text-secondary)]">{label}</span>
+      <Upload size={16} className="text-(--text-secondary)" />
+      <span className="text-[13px] text-(--text-secondary)">{label}</span>
       <input
         ref={inputRef}
         type="file"

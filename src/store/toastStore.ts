@@ -1,4 +1,3 @@
-// src/store/toastStore.ts
 import { create } from "zustand"
 
 export type ToastVariant = "success" | "error" | "info" | "warning"

@@ -1,4 +1,3 @@
-// src/pages/auth/ForgotPasswordPage.tsx
 import * as React from "react"
 import { Link } from "react-router-dom"
 import { Mail, ArrowLeft, MailCheck } from "lucide-react"
@@ -15,7 +14,6 @@ export default function ForgotPasswordPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    // TODO: wire up to your auth service
     setTimeout(() => {
       setLoading(false)
       setSent(true)

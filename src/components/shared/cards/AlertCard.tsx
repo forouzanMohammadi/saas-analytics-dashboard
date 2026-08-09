@@ -1,5 +1,3 @@
-// src/components/shared/AlertCard.tsx
-import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Sparkles, AlertTriangle, CircleCheck, CircleX } from "lucide-react"
 import type { LucideIcon } from "lucide-react"

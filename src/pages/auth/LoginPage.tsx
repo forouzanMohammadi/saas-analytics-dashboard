@@ -1,4 +1,3 @@
-// src/pages/auth/LoginPage.tsx
 import * as React from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { Mail } from "lucide-react"
