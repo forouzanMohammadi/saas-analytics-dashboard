@@ -1,6 +1,6 @@
 // src/pages/auth/RegisterPage.tsx
 import * as React from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Mail, User } from "lucide-react"
 
 import { AuthLayout } from "@/layouts/AuthLayout"
@@ -8,6 +8,16 @@ import { Input } from "@/components/shared/forms/Input"
 import { PasswordInput } from "@/components/shared/forms/PasswordInput"
 import { Checkbox } from "@/components/shared/forms/Checkbox"
 import { Button } from "@/components/shared/buttons/Button"
+import { useAuthStore } from "@/store/authStore"
+import { toast } from "@/store/toastStore"
+import { validateEmail, validatePassword, validateRequired } from "@/utils/validators"
+
+interface FormErrors {
+  name?: string
+  email?: string
+  password?: string
+  agreed?: string
+}
 
 export default function RegisterPage() {
   const [name, setName] = React.useState("")
@@ -15,12 +25,62 @@ export default function RegisterPage() {
   const [password, setPassword] = React.useState("")
   const [agreed, setAgreed] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
+  const [errors, setErrors] = React.useState<FormErrors>({})
 
-  function handleSubmit(e: React.FormEvent) {
+  const login = useAuthStore((s) => s.login)
+  const navigate = useNavigate()
+
+  function handleNameChange(value: string) {
+    setName(value)
+    if (errors.name) setErrors((prev) => ({ ...prev, name: validateRequired(value, "Full name") }))
+  }
+
+  function handleEmailChange(value: string) {
+    setEmail(value)
+    if (errors.email) setErrors((prev) => ({ ...prev, email: validateEmail(value) }))
+  }
+
+  function handlePasswordChange(value: string) {
+    setPassword(value)
+    if (errors.password) setErrors((prev) => ({ ...prev, password: validatePassword(value) }))
+  }
+
+  function handleAgreedChange(value: boolean) {
+    setAgreed(value)
+    if (errors.agreed && value) setErrors((prev) => ({ ...prev, agreed: undefined }))
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+
+    const nextErrors: FormErrors = {
+      name: validateRequired(name, "Full name"),
+      email: validateEmail(email),
+      password: validatePassword(password),
+      agreed: agreed ? undefined : "You must accept the terms to continue.",
+    }
+    setErrors(nextErrors)
+    if (Object.values(nextErrors).some(Boolean)) return
+
     setLoading(true)
-    // TODO: wire up to your auth service
-    setTimeout(() => setLoading(false), 1200)
+
+    try {
+      // TODO: replace with your real signup API call.
+      // New accounts should default to the least-privileged role;
+      // an admin promotes them later from the Users page.
+      await new Promise((resolve) => setTimeout(resolve, 800))
+
+      login({ id: crypto.randomUUID(), name, email, role: "user" }, "mock-jwt-token")
+      toast.success("Account created", `Welcome, ${name}!`)
+
+      // brief pause so the success toast is visible before the page swaps
+      await new Promise((resolve) => setTimeout(resolve, 600))
+      navigate("/dashboard", { replace: true })
+    } catch {
+      toast.error("Couldn't create account", "Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -36,7 +96,7 @@ export default function RegisterPage() {
         </>
       }
     >
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-[12.5px] font-medium text-(--text)">
             Full name
@@ -46,8 +106,8 @@ export default function RegisterPage() {
             startIcon={<User />}
             placeholder="Jane Doe"
             value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
+            onChange={(e) => handleNameChange(e.target.value)}
+            error={errors.name}
           />
         </div>
 
@@ -61,8 +121,8 @@ export default function RegisterPage() {
             startIcon={<Mail />}
             placeholder="name@company.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            onChange={(e) => handleEmailChange(e.target.value)}
+            error={errors.email}
           />
         </div>
 
@@ -74,34 +134,36 @@ export default function RegisterPage() {
             id="password"
             placeholder="At least 8 characters"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            minLength={8}
-            required
+            onChange={(e) => handlePasswordChange(e.target.value)}
+            error={errors.password}
           />
         </div>
 
-        <label className="flex items-start gap-2 text-[12.5px] text-(--text-secondary)">
-          <Checkbox checked={agreed} onCheckedChange={setAgreed} className="mt-0.5" />
-          <span>
-            I agree to the{" "}
-            <a href="#" className="font-medium text-(--primary)">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a href="#" className="font-medium text-(--primary)">
-              Privacy Policy
-            </a>
-            .
-          </span>
-        </label>
+        <div>
+          <label className="flex items-start gap-2 text-[12.5px] text-(--text-secondary)">
+            <Checkbox
+              checked={agreed}
+              onCheckedChange={handleAgreedChange}
+              className="mt-0.5"
+            />
+            <span>
+              I agree to the{" "}
+              <a href="#" className="font-medium text-(--primary)">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="#" className="font-medium text-(--primary)">
+                Privacy Policy
+              </a>
+              .
+            </span>
+          </label>
+          {errors.agreed ? (
+            <p className="mt-1.5 text-xs text-(--danger)">{errors.agreed}</p>
+          ) : null}
+        </div>
 
-        <Button
-          type="submit"
-          variant="primary"
-          className="mt-1 w-full"
-          loading={loading}
-          disabled={!agreed}
-        >
+        <Button type="submit" variant="primary" className="mt-1 w-full" loading={loading}>
           Create account
         </Button>
       </form>
