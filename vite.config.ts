@@ -3,17 +3,47 @@ import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 import path from "path"
 import { fileURLToPath } from "url"
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin"
+import { playwright } from "@vitest/browser-playwright"
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
+
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(dirname, "./src"),
     },
+  },
+
+  test: {
+    projects: [
+      {
+        extends: true,
+
+        plugins: [
+          storybookTest({
+            configDir: path.join(dirname, ".storybook"),
+          }),
+        ],
+
+        test: {
+          name: "storybook",
+
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+
+            instances: [
+              {
+                browser: "chromium",
+              },
+            ],
+          },
+        },
+      },
+    ],
   },
 })

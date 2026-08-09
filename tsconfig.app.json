@@ -27,5 +27,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/styles/colors.ts"]
+  "include": ["src", ".storybook"]
 }
