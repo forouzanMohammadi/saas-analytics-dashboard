@@ -14,7 +14,7 @@ const users = [
     { name: "Mina Park", email: "mina@globaltech.com", plan: "Growth", role: "Member", status: "Invited" },
 ]
 
-export function UsersPage() {
+const UsersPage = () =>{
     const [filter, setFilter] = useState("all")
     const [page, setPage] = useState(1)
 
@@ -80,3 +80,5 @@ export function UsersPage() {
         </div>
     )
 }
+
+export default UsersPage

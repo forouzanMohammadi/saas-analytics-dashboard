@@ -22,7 +22,8 @@ import { ProgressCard } from "@/components/shared/cards/ProgressCard";
 import { ListCard, ListCardItem } from "@/components/shared/cards/ListCard";
 import { AlertCard } from "@/components/shared/cards/AlertCard";
 import { StatCard } from "@/components/shared/cards/StatCard";
-import { UsersPage } from "./Users";
+import UsersPage from "./Users";
+
 
 const stats = [
   {

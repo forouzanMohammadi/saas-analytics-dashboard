@@ -1,8 +1,14 @@
+// src/app/router.tsx
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { DashboardLayout } from "@/layouts/DashboardLayout";
+import { ProtectedRoute } from "@/routes/ProtectedRoute";
+import { RoleGuard } from "@/routes/RoleGuard";
+import { PublicOnlyRoute } from "@/routes/PublicOnlyRoute";
 
-const LoginPage = lazy(() => import("../pages/LoginPage"));
+const LoginPage = lazy(() => import("@/pages/auth/LoginPage"));
+const RegisterPage = lazy(() => import("@/pages/auth/RegisterPage"));
+const ForgotPasswordPage = lazy(() => import("@/pages/auth/ForgotPasswordPage"));
 const DashboardPage = lazy(() => import("@/pages/Dashboard"));
 const AnalyticsPage = lazy(() => import("@/pages/Analytics"));
 const UsersPage = lazy(() => import("@/pages/Users"));
@@ -19,14 +25,40 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: (
-      <Suspense fallback={<PageLoader />}>
-        <LoginPage />
-      </Suspense>
+      <PublicOnlyRoute>
+        <Suspense fallback={<PageLoader />}>
+          <LoginPage />
+        </Suspense>
+      </PublicOnlyRoute>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <PublicOnlyRoute>
+        <Suspense fallback={<PageLoader />}>
+          <RegisterPage />
+        </Suspense>
+      </PublicOnlyRoute>
+    ),
+  },
+  {
+    path: "/forgot-password",
+    element: (
+      <PublicOnlyRoute>
+        <Suspense fallback={<PageLoader />}>
+          <ForgotPasswordPage />
+        </Suspense>
+      </PublicOnlyRoute>
     ),
   },
   {
     path: "/",
-    element: <DashboardLayout />,
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,
@@ -43,17 +75,21 @@ export const router = createBrowserRouter([
       {
         path: "analytics",
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <AnalyticsPage />
-          </Suspense>
+          <RoleGuard allowedRoles={["admin"]}>
+            <Suspense fallback={<PageLoader />}>
+              <AnalyticsPage />
+            </Suspense>
+          </RoleGuard>
         ),
       },
       {
         path: "users",
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <UsersPage />
-          </Suspense>
+          <RoleGuard allowedRoles={["admin"]}>
+            <Suspense fallback={<PageLoader />}>
+              <UsersPage />
+            </Suspense>
+          </RoleGuard>
         ),
       },
       {
@@ -67,9 +103,11 @@ export const router = createBrowserRouter([
       {
         path: "settings",
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <SettingsPage />
-          </Suspense>
+          <RoleGuard allowedRoles={["admin"]}>
+            <Suspense fallback={<PageLoader />}>
+              <SettingsPage />
+            </Suspense>
+          </RoleGuard>
         ),
       },
     ],
