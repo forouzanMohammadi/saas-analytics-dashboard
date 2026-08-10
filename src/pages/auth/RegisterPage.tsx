@@ -1,3 +1,4 @@
+// src/pages/auth/RegisterPage.tsx
 import * as React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Mail, User } from "lucide-react"
@@ -10,6 +11,7 @@ import { Button } from "@/components/shared/buttons/Button"
 import { useAuthStore } from "@/store/authStore"
 import { toast } from "@/store/toastStore"
 import { validateEmail, validatePassword, validateRequired } from "@/utils/validators"
+import { registerUser } from "@/services/mockAuthService"
 
 interface FormErrors {
   name?: string
@@ -64,15 +66,17 @@ export default function RegisterPage() {
     setLoading(true)
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800))
+      const account = await registerUser({ name, email, password })
+      login(account, "mock-jwt-token")
+      toast.success("Account created", `Welcome, ${account.name}!`)
 
-      login({ id: crypto.randomUUID(), name, email, role: "user" }, "mock-jwt-token")
-      toast.success("Account created", `Welcome, ${name}!`)
-
-      await new Promise((resolve) => setTimeout(resolve, 600))
+      // brief pause so the success toast is visible before the page swaps
+      await new Promise((resolve) => setTimeout(resolve, 500))
       navigate("/dashboard", { replace: true })
-    } catch {
-      toast.error("Couldn't create account", "Please try again.")
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Please try again."
+      setErrors((prev) => ({ ...prev, email: message }))
+      toast.error("Couldn't create account", message)
     } finally {
       setLoading(false)
     }

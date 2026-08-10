@@ -1,3 +1,4 @@
+// src/pages/auth/LoginPage.tsx
 import * as React from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { Mail } from "lucide-react"
@@ -10,10 +11,12 @@ import { Button } from "@/components/shared/buttons/Button"
 import { useAuthStore } from "@/store/authStore"
 import { toast } from "@/store/toastStore"
 import { validateEmail, validatePassword } from "@/utils/validators"
+import { loginUser } from "@/services/mockAuthService"
 
 interface FormErrors {
   email?: string
   password?: string
+  form?: string
 }
 
 export default function LoginPage() {
@@ -54,18 +57,21 @@ export default function LoginPage() {
 
     setLoading(true)
 
-    // TODO: replace with your real auth API call (e.g. via axios/@tanstack/react-query).
-    // The role would normally come back from the API response.
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    const role = email.includes("admin") ? "admin" : "user"
+    try {
+      const account = await loginUser({ email, password })
+      login(account, "mock-jwt-token")
+      toast.success("Signed in", `Logged in as ${account.role}`)
 
-    login({ id: "1", name: "Demo User", email, role }, "mock-jwt-token")
-    toast.success("Signed in", `Logged in as ${role}`)
-
-    // brief pause so the success toast is visible before the page swaps
-    await new Promise((resolve) => setTimeout(resolve, 600))
-    setLoading(false)
-    navigate(from, { replace: true })
+      // brief pause so the success toast is visible before the page swaps
+      await new Promise((resolve) => setTimeout(resolve, 500))
+      navigate(from, { replace: true })
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Something went wrong."
+      setErrors((prev) => ({ ...prev, password: message }))
+      toast.error("Couldn't sign in", message)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -123,6 +129,10 @@ export default function LoginPage() {
         <Button type="submit" variant="primary" className="mt-1 w-full" loading={loading}>
           Sign in
         </Button>
+
+        <p className="text-center text-[11.5px] text-(--text-muted)">
+          Demo admin: admin@pulse.dev / admin123
+        </p>
       </form>
     </AuthLayout>
   )
