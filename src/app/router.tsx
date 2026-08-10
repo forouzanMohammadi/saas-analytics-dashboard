@@ -13,6 +13,7 @@ const AnalyticsPage = lazy(() => import("@/pages/Analytics"));
 const UsersPage = lazy(() => import("@/pages/Users"));
 const PricingPage = lazy(() => import("@/pages/Pricing"));
 const SettingsPage = lazy(() => import("@/pages/Settings"));
+const ProfilePage = lazy(() => import("@/pages/Profile"));
 
 const PageLoader = () => (
   <div className="flex h-screen items-center justify-center">
@@ -107,6 +108,14 @@ export const router = createBrowserRouter([
               <SettingsPage />
             </Suspense>
           </RoleGuard>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ProfilePage />
+          </Suspense>
         ),
       },
     ],

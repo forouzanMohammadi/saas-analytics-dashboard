@@ -117,7 +117,9 @@ export default function Header({ onMenuClick }: HeaderProps) {
               <p className="text-[10.5px] text-(--text-muted)">{user?.email}</p>
             </div>
             <DropdownMenuSeparator className="bg-(--border)" />
-            <DropdownMenuItem className="gap-2 text-[12.5px] text-(--text)">
+            <DropdownMenuItem 
+            onClick={() => navigate("/profile")}
+            className="gap-2 text-[12.5px] text-(--text)">
               <UserIcon size={15} />
               Profile
             </DropdownMenuItem>
