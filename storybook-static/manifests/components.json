@@ -1,0 +1,1578 @@
+{
+  "v": 0,
+  "components": {
+    "components-buttons-button": {
+      "id": "components-buttons-button",
+      "name": "Button",
+      "path": "./src/components/shared/buttons/Button.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component definition found",
+        "message": "File: D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\buttons\\Button.tsx\nError:\n\".\" is not exported under no conditions from package D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority (see exports field in D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority\\package.json)\nYou can debug your component file in this playground: https://react-docgen.dev/playground\nCode:\nimport * as React from \"react\"\r\nimport { cva, type VariantProps } from \"class-variance-authority\"\r\nimport { Loader2 } from \"lucide-react\"\r\n\r\nimport { Button as ShadcnButton } from \"@/components/ui/button\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst buttonVariants = cva(\r\n  \"font-medium transition-all disabled:bg-none disabled:bg-[var(--disabled-bg)] disabled:text-[var(--disabled-text)] disabled:shadow-none\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        primary:\r\n          \"bg-[linear-gradient(135deg,var(--primary-lighter),var(--primary-dark))] text-white shadow-sm hover:bg-[linear-gradient(135deg,var(--primary-light),var(--primary))]\",\r\n        secondary:\r\n          \"border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] hover:bg-[var(--search-bg)]\",\r\n        soft: \"bg-[var(--primary-bg)] text-[var(--primary-dark)] hover:bg-[var(--primary-soft)]/40\",\r\n        ghost:\r\n          \"bg-transparent text-[var(--text-secondary)] hover:bg-[var(--search-bg)] hover:text-[var(--text)]\",\r\n        destructive:\r\n          \"bg-[linear-gradient(135deg,#F87171,var(--danger))] text-white shadow-sm hover:opacity-90\",\r\n        success:\r\n          \"bg-[linear-gradient(135deg,#34D399,var(--success))] text-white shadow-sm hover:opacity-90\",\r\n        warning:\r\n          \"bg-[linear-gradient(135deg,#FBBF24,var(--warning))] text-white shadow-sm hover:opacity-90\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"primary\",\r\n    },\r\n  }\r\n)\r\n\r\nexport interface ButtonProps\r\n  extends Omit<React.ComponentProps<typeof ShadcnButton>, \"variant\">,\r\n    VariantProps<typeof buttonVariants> {\r\n  loading?: boolean\r\n}\r\n\r\nfunction Button({\r\n  className,\r\n  variant,\r\n  size = \"default\",\r\n  loading = false,\r\n  disabled,\r\n  children,\r\n  ...props\r\n}: ButtonProps) {\r\n  return (\r\n    <ShadcnButton\r\n      variant=\"ghost\"\r\n      size={size}\r\n      disabled={disabled || loading}\r\n      className={cn(buttonVariants({ variant }), className)}\r\n      {...props}\r\n    >\r\n      {loading ? <Loader2 className=\"animate-spin\" /> : null}\r\n      {children}\r\n    </ShadcnButton>\r\n  )\r\n}\r\n\r\nexport { Button, buttonVariants }"
+      },
+      "stories": [
+        {
+          "id": "components-buttons-button--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Button variant=\"primary\" size=\"default\" loading={false} disabled={false}>Button</Button>;",
+          "description": "Interactive playground for exploring all Button props."
+        },
+        {
+          "id": "components-buttons-button--variants",
+          "name": "Variants",
+          "snippet": "const Variants = () => (\r\n  <div className=\"flex flex-wrap items-center justify-center gap-3\">\r\n    <Button variant=\"primary\">Primary</Button>\r\n    <Button variant=\"secondary\">Secondary</Button>\r\n    <Button variant=\"soft\">Soft</Button>\r\n    <Button variant=\"ghost\">Ghost</Button>\r\n    <Button variant=\"destructive\">Destructive</Button>\r\n    <Button variant=\"success\">Success</Button>\r\n    <Button variant=\"warning\">Warning</Button>\r\n  </div>\r\n);",
+          "description": "All available visual variants."
+        },
+        {
+          "id": "components-buttons-button--sizes",
+          "name": "Sizes",
+          "snippet": "const Sizes = () => (\r\n  <div className=\"flex flex-wrap items-center justify-center gap-3\">\r\n    <Button size=\"sm\">Small</Button>\r\n    <Button size=\"default\">Default</Button>\r\n    <Button size=\"lg\">Large</Button>\r\n  </div>\r\n);",
+          "description": "Available button sizes."
+        },
+        {
+          "id": "components-buttons-button--with-icon",
+          "name": "With Icon",
+          "snippet": "const WithIcon = () => (\r\n  <div className=\"flex items-center gap-3\">\r\n    <Button>\r\n      <Search />\r\n      Search\r\n    </Button>\r\n\r\n    <Button>\r\n      Continue\r\n      <ArrowRight />\r\n    </Button>\r\n  </div>\r\n);",
+          "description": "Button with a leading icon."
+        },
+        {
+          "id": "components-buttons-button--icon-only",
+          "name": "Icon Only",
+          "snippet": "const IconOnly = () => (\r\n  <Button\r\n    size=\"icon\"\r\n    aria-label=\"Search\"\r\n  >\r\n    <Search />\r\n  </Button>\r\n);",
+          "description": "Icon-only button."
+        },
+        {
+          "id": "components-buttons-button--loading",
+          "name": "Loading",
+          "snippet": "const Loading = () => <Button loading variant=\"primary\">Loading...</Button>;",
+          "description": "Loading state."
+        },
+        {
+          "id": "components-buttons-button--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <Button disabled variant=\"primary\">Disabled</Button>;",
+          "description": "Disabled state."
+        }
+      ],
+      "import": "import { ArrowRight, Search } from \"lucide-react\";\nimport { Button } from \"saas-dashboard\";"
+    },
+    "components-cards-alertcard": {
+      "id": "components-cards-alertcard",
+      "name": "AlertCard",
+      "path": "./src/components/shared/cards/AlertCard.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component definition found",
+        "message": "File: D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\cards\\AlertCard.tsx\nError:\n\".\" is not exported under no conditions from package D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority (see exports field in D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority\\package.json)\nYou can debug your component file in this playground: https://react-docgen.dev/playground\nCode:\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { Sparkles, AlertTriangle, CircleCheck, CircleX } from \"lucide-react\"\nimport type { LucideIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst alertCardVariants = cva(\"flex items-start gap-2.5 rounded-2xl px-4 py-3.5\", {\n  variants: {\n    variant: {\n      insight: \"bg-[var(--primary-bg)] text-[var(--primary-dark)]\",\n      warning: \"bg-[var(--warning-bg)] text-[var(--warning-text)]\",\n      success: \"bg-[var(--success-bg)] text-[var(--success)]\",\n      danger: \"bg-[var(--danger-bg)] text-[var(--danger)]\",\n    },\n  },\n  defaultVariants: {\n    variant: \"insight\",\n  },\n})\n\nconst defaultIcons: Record<string, LucideIcon> = {\n  insight: Sparkles,\n  warning: AlertTriangle,\n  success: CircleCheck,\n  danger: CircleX,\n}\n\nexport interface AlertCardProps extends VariantProps<typeof alertCardVariants> {\n  title: string\n  description?: string\n  icon?: LucideIcon\n  className?: string\n}\n\nfunction AlertCard({ variant = \"insight\", title, description, icon, className }: AlertCardProps) {\n  const Icon = icon ?? defaultIcons[variant ?? \"insight\"]\n\n  return (\n    <div className={cn(alertCardVariants({ variant }), className)}>\n      <Icon size={17} strokeWidth={2} className=\"mt-0.5 shrink-0\" />\n      <div>\n        <p className=\"text-[13px] font-semibold\">{title}</p>\n        {description ? <p className=\"mt-0.5 text-[12px] opacity-80\">{description}</p> : null}\n      </div>\n    </div>\n  )\n}\n\nexport { AlertCard }\n"
+      },
+      "stories": [
+        {
+          "id": "components-cards-alertcard--insight",
+          "name": "Insight",
+          "snippet": "const Insight = () => <AlertCard\r\n    variant=\"insight\"\r\n    title=\"New insight available\"\r\n    description=\"Your conversion rate increased by 12% this week.\" />;"
+        },
+        {
+          "id": "components-cards-alertcard--warning",
+          "name": "Warning",
+          "snippet": "const Warning = () => <AlertCard\r\n    variant=\"warning\"\r\n    title=\"Usage limit approaching\"\r\n    description=\"You have used 85% of your monthly usage limit.\" />;"
+        },
+        {
+          "id": "components-cards-alertcard--success",
+          "name": "Success",
+          "snippet": "const Success = () => <AlertCard\r\n    variant=\"success\"\r\n    title=\"Payment successful\"\r\n    description=\"Your subscription has been successfully renewed.\" />;"
+        },
+        {
+          "id": "components-cards-alertcard--danger",
+          "name": "Danger",
+          "snippet": "const Danger = () => <AlertCard\r\n    variant=\"danger\"\r\n    title=\"Payment failed\"\r\n    description=\"We couldn't process your latest payment.\" />;"
+        },
+        {
+          "id": "components-cards-alertcard--custom-icon",
+          "name": "Custom Icon",
+          "snippet": "const CustomIcon = () => <AlertCard\r\n    variant=\"insight\"\r\n    title=\"Custom notification\"\r\n    description=\"This alert demonstrates a custom icon.\"\r\n    icon={Sparkles} />;"
+        },
+        {
+          "id": "components-cards-alertcard--without-description",
+          "name": "Without Description",
+          "snippet": "const WithoutDescription = () => <AlertCard variant=\"success\" title=\"Changes saved successfully\" />;"
+        }
+      ],
+      "import": "import { AlertCard } from \"saas-dashboard\";"
+    },
+    "components-cards-emptystate": {
+      "id": "components-cards-emptystate",
+      "name": "EmptyState",
+      "path": "./src/components/shared/cards/EmptyState.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "EmptyState",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\cards\\EmptyState.tsx",
+        "actualName": "EmptyState",
+        "exportName": "EmptyState",
+        "props": {
+          "title": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "description": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "action": {
+            "required": false,
+            "tsType": {
+              "name": "ReactNode"
+            },
+            "description": ""
+          },
+          "icon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactNode"
+            },
+            "description": ""
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-cards-emptystate--default",
+          "name": "Default",
+          "snippet": "const Default = () => <EmptyState\r\n    title=\"No data available\"\r\n    description=\"There is no data to display yet. Start by adding your first item.\"\r\n    icon={<BarChart3 size={40} strokeWidth={1.6} />} />;"
+        },
+        {
+          "id": "components-cards-emptystate--with-action",
+          "name": "With Action",
+          "snippet": "const WithAction = () => <EmptyState\r\n    title=\"No projects yet\"\r\n    description=\"Create your first project to start tracking your analytics.\"\r\n    icon={<BarChart3 size={40} strokeWidth={1.6} />}\r\n    action={\r\n      <Button variant=\"primary\">\r\n        <Plus size={16} />\r\n        Create Project\r\n      </Button>\r\n    } />;"
+        },
+        {
+          "id": "components-cards-emptystate--without-icon",
+          "name": "Without Icon",
+          "snippet": "const WithoutIcon = () => <EmptyState\r\n    title=\"Nothing here yet\"\r\n    description=\"Once you add some data, it will appear here.\" />;"
+        }
+      ],
+      "import": "import { BarChart3, Plus } from \"lucide-react\";\nimport { Button, EmptyState } from \"saas-dashboard\";"
+    },
+    "components-cards-listcard": {
+      "id": "components-cards-listcard",
+      "name": "ListCard",
+      "path": "./src/components/shared/cards/ListCard.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "ListCard",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\cards\\ListCard.tsx",
+        "actualName": "ListCard",
+        "exportName": "ListCard",
+        "props": {
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "children": {
+            "required": true,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-cards-listcard--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\r\n  <div className=\"w-105\">\r\n    <ListCard>\r\n      <ListCardItem\r\n        avatar=\"JD\"\r\n        title=\"John Doe\"\r\n        subtitle=\"john@example.com\"\r\n        value=\"$2,480\"\r\n      />\r\n\r\n      <ListCardItem\r\n        avatar=\"AS\"\r\n        title=\"Anna Smith\"\r\n        subtitle=\"anna@example.com\"\r\n        value=\"$1,920\"\r\n      />\r\n\r\n      <ListCardItem\r\n        avatar=\"MK\"\r\n        title=\"Michael Kim\"\r\n        subtitle=\"michael@example.com\"\r\n        value=\"$1,640\"\r\n      />\r\n    </ListCard>\r\n  </div>\r\n);"
+        },
+        {
+          "id": "components-cards-listcard--without-values",
+          "name": "Without Values",
+          "snippet": "const WithoutValues = () => (\r\n  <div className=\"w-105\">\r\n    <ListCard>\r\n      <ListCardItem\r\n        avatar=\"JD\"\r\n        title=\"John Doe\"\r\n        subtitle=\"john@example.com\"\r\n      />\r\n\r\n      <ListCardItem\r\n        avatar=\"AS\"\r\n        title=\"Anna Smith\"\r\n        subtitle=\"anna@example.com\"\r\n      />\r\n\r\n      <ListCardItem\r\n        avatar=\"MK\"\r\n        title=\"Michael Kim\"\r\n        subtitle=\"michael@example.com\"\r\n      />\r\n    </ListCard>\r\n  </div>\r\n);"
+        },
+        {
+          "id": "components-cards-listcard--without-subtitles",
+          "name": "Without Subtitles",
+          "snippet": "const WithoutSubtitles = () => (\r\n  <div className=\"w-105\">\r\n    <ListCard>\r\n      <ListCardItem\r\n        avatar=\"JD\"\r\n        title=\"John Doe\"\r\n        value=\"$2,480\"\r\n      />\r\n\r\n      <ListCardItem\r\n        avatar=\"AS\"\r\n        title=\"Anna Smith\"\r\n        value=\"$1,920\"\r\n      />\r\n\r\n      <ListCardItem\r\n        avatar=\"MK\"\r\n        title=\"Michael Kim\"\r\n        value=\"$1,640\"\r\n      />\r\n    </ListCard>\r\n  </div>\r\n);"
+        },
+        {
+          "id": "components-cards-listcard--single-item",
+          "name": "Single Item",
+          "snippet": "const SingleItem = () => (\r\n  <div className=\"w-105\">\r\n    <ListCard>\r\n      <ListCardItem\r\n        avatar=\"JD\"\r\n        title=\"John Doe\"\r\n        subtitle=\"john@example.com\"\r\n        value=\"$2,480\"\r\n      />\r\n    </ListCard>\r\n  </div>\r\n);"
+        }
+      ],
+      "import": "import { ListCard, ListCardItem } from \"saas-dashboard\";"
+    },
+    "components-cards-metriccard": {
+      "id": "components-cards-metriccard",
+      "name": "MetricCard",
+      "path": "./src/components/shared/cards/MetricCard.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "MetricCard",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\cards\\MetricCard.tsx",
+        "actualName": "MetricCard",
+        "exportName": "MetricCard",
+        "props": {
+          "title": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "value": {
+            "required": true,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "variant": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"simple\" | \"trend\" | \"sparkline\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"simple\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"trend\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"sparkline\""
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"simple\"",
+              "computed": false
+            }
+          },
+          "trend": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "object",
+              "raw": "{\r\n  value: string\r\n  isPositive?: boolean\r\n}",
+              "signature": {
+                "properties": [
+                  {
+                    "key": "value",
+                    "value": {
+                      "name": "string",
+                      "required": true
+                    }
+                  },
+                  {
+                    "key": "isPositive",
+                    "value": {
+                      "name": "boolean",
+                      "required": false
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "sparklineData": {
+            "required": false,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "number"
+                }
+              ],
+              "raw": "number[]"
+            },
+            "description": ""
+          },
+          "icon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-cards-metriccard--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <MetricCard\r\n    title=\"Total Revenue\"\r\n    value=\"$48,290\"\r\n    variant=\"trend\"\r\n    trend={{\r\n      value: \"+12.5%\",\r\n      isPositive: true,\r\n    }}\r\n    sparklineData={[40, 45, 42, 55, 52, 65, 61, 72, 68, 80]} />;"
+        },
+        {
+          "id": "components-cards-metriccard--simple",
+          "name": "Simple",
+          "snippet": "const Simple = () => <MetricCard title=\"Total Revenue\" value=\"$48,290\" variant=\"simple\" />;"
+        },
+        {
+          "id": "components-cards-metriccard--with-trend",
+          "name": "With Trend",
+          "snippet": "const WithTrend = () => <MetricCard\r\n    title=\"Monthly Revenue\"\r\n    value=\"$24,580\"\r\n    variant=\"trend\"\r\n    trend={{\r\n      value: \"+12.5%\",\r\n      isPositive: true,\r\n    }} />;"
+        },
+        {
+          "id": "components-cards-metriccard--negative-trend",
+          "name": "Negative Trend",
+          "snippet": "const NegativeTrend = () => <MetricCard\r\n    title=\"Churn Rate\"\r\n    value=\"4.8%\"\r\n    variant=\"trend\"\r\n    trend={{\r\n      value: \"-2.1%\",\r\n      isPositive: false,\r\n    }} />;"
+        },
+        {
+          "id": "components-cards-metriccard--with-sparkline",
+          "name": "With Sparkline",
+          "snippet": "const WithSparkline = () => <MetricCard\r\n    title=\"Active Users\"\r\n    value={12480}\r\n    variant=\"sparkline\"\r\n    sparklineData={[40, 45, 42, 55, 52, 65, 61, 72, 68, 80]} />;"
+        },
+        {
+          "id": "components-cards-metriccard--with-icon",
+          "name": "With Icon",
+          "snippet": "const WithIcon = () => <MetricCard\r\n    title=\"Total Users\"\r\n    value={12840}\r\n    variant=\"simple\"\r\n    icon={<Users className=\"size-5\" />} />;"
+        },
+        {
+          "id": "components-cards-metriccard--revenue",
+          "name": "Revenue",
+          "snippet": "const Revenue = () => <MetricCard\r\n    title=\"Revenue\"\r\n    value=\"$84,290\"\r\n    variant=\"trend\"\r\n    trend={{\r\n      value: \"+18.4%\",\r\n      isPositive: true,\r\n    }}\r\n    icon={<DollarSign className=\"size-5\" />} />;"
+        },
+        {
+          "id": "components-cards-metriccard--orders",
+          "name": "Orders",
+          "snippet": "const Orders = () => <MetricCard\r\n    title=\"Orders\"\r\n    value={3248}\r\n    variant=\"sparkline\"\r\n    sparklineData={[20, 32, 28, 40, 36, 48, 45, 58, 52, 64]}\r\n    icon={<ShoppingCart className=\"size-5\" />} />;"
+        },
+        {
+          "id": "components-cards-metriccard--activity-metric",
+          "name": "Activity Metric",
+          "snippet": "const ActivityMetric = () => <MetricCard\r\n    title=\"Active Sessions\"\r\n    value={842}\r\n    variant=\"simple\"\r\n    icon={<Activity className=\"size-5\" />} />;"
+        }
+      ],
+      "import": "import { Activity, DollarSign, ShoppingCart, Users } from \"lucide-react\";\nimport { MetricCard } from \"saas-dashboard\";"
+    },
+    "components-cards-progresscard": {
+      "id": "components-cards-progresscard",
+      "name": "ProgressCard",
+      "path": "./src/components/shared/cards/ProgressCard.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "ProgressCard",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\cards\\ProgressCard.tsx",
+        "actualName": "ProgressCard",
+        "exportName": "ProgressCard",
+        "props": {
+          "label": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "value": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "subtitle": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-cards-progresscard--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <ProgressCard label=\"Storage Usage\" value={68} subtitle=\"68 GB of 100 GB used\" />;"
+        },
+        {
+          "id": "components-cards-progresscard--low",
+          "name": "Low",
+          "snippet": "const Low = () => <ProgressCard label=\"Storage Usage\" value={25} subtitle=\"25 GB of 100 GB used\" />;"
+        },
+        {
+          "id": "components-cards-progresscard--medium",
+          "name": "Medium",
+          "snippet": "const Medium = () => <ProgressCard label=\"Storage Usage\" value={60} subtitle=\"60 GB of 100 GB used\" />;"
+        },
+        {
+          "id": "components-cards-progresscard--high",
+          "name": "High",
+          "snippet": "const High = () => <ProgressCard label=\"Storage Usage\" value={85} subtitle=\"85 GB of 100 GB used\" />;"
+        },
+        {
+          "id": "components-cards-progresscard--complete",
+          "name": "Complete",
+          "snippet": "const Complete = () => <ProgressCard\r\n    label=\"Profile Completion\"\r\n    value={100}\r\n    subtitle=\"Your profile is complete\" />;"
+        },
+        {
+          "id": "components-cards-progresscard--without-subtitle",
+          "name": "Without Subtitle",
+          "snippet": "const WithoutSubtitle = () => <ProgressCard label=\"Project Progress\" value={72} />;"
+        },
+        {
+          "id": "components-cards-progresscard--above-maximum",
+          "name": "Above Maximum",
+          "snippet": "const AboveMaximum = () => <ProgressCard\r\n    label=\"Clamped Value\"\r\n    value={120}\r\n    subtitle=\"Values above 100 are clamped to 100%\" />;"
+        },
+        {
+          "id": "components-cards-progresscard--below-minimum",
+          "name": "Below Minimum",
+          "snippet": "const BelowMinimum = () => <ProgressCard\r\n    label=\"Clamped Value\"\r\n    value={-20}\r\n    subtitle=\"Values below 0 are clamped to 0%\" />;"
+        }
+      ],
+      "import": "import { ProgressCard } from \"saas-dashboard\";"
+    },
+    "components-cards-statcard": {
+      "id": "components-cards-statcard",
+      "name": "StatCard",
+      "path": "./src/components/shared/cards/StatCard.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component definition found",
+        "message": "File: D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\cards\\StatCard.tsx\nError:\n\".\" is not exported under no conditions from package D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority (see exports field in D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority\\package.json)\nYou can debug your component file in this playground: https://react-docgen.dev/playground\nCode:\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\nimport type { LucideIcon } from \"lucide-react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst statCardVariants = cva(\r\n  \"flex items-center gap-3 rounded-2xl border p-4 shadow-[0_1px_12px_rgba(30,27,46,0.03)]\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-(--surface) border-(--border)\",\r\n        accent: \"bg-(--primary) border-transparent\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n    },\r\n  }\r\n);\r\n\r\nconst iconWrapperVariants = cva(\r\n  \"flex h-10 w-10 shrink-0 items-center justify-center rounded-[11px]\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-(--primary-bg) text-(--primary)\",\r\n        accent: \"bg-white/15 text-white\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n    },\r\n  }\r\n);\r\n\r\nexport interface StatCardProps extends VariantProps<typeof statCardVariants> {\r\n  icon: LucideIcon;\r\n  label: string;\r\n  value: string;\r\n  className?: string;\r\n}\r\n\r\nexport function StatCard({ icon: Icon, label, value, variant, className }: StatCardProps) {\r\n  return (\r\n    <div className={cn(statCardVariants({ variant }), className)}>\r\n      <div className={iconWrapperVariants({ variant })}>\r\n        <Icon size={20} strokeWidth={1.8} />\r\n      </div>\r\n      <div>\r\n        <p\r\n          className={cn(\r\n            \"text-[11.5px]\",\r\n            variant === \"accent\" ? \"text-white/80\" : \"text-(--text-secondary)\"\r\n          )}\r\n        >\r\n          {label}\r\n        </p>\r\n        <p\r\n          className={cn(\r\n            \"text-[18px] font-medium\",\r\n            variant === \"accent\" ? \"text-white\" : \"text-(--text)\"\r\n          )}\r\n        >\r\n          {value}\r\n        </p>\r\n      </div>\r\n    </div>\r\n  );\r\n}"
+      },
+      "stories": [
+        {
+          "id": "components-cards-statcard--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <StatCard icon={Users} label=\"Total Users\" value=\"12,840\" variant=\"default\" />;"
+        },
+        {
+          "id": "components-cards-statcard--default",
+          "name": "Default",
+          "snippet": "const Default = () => <StatCard icon={Users} label=\"Total Users\" value=\"12,840\" variant=\"default\" />;"
+        },
+        {
+          "id": "components-cards-statcard--accent",
+          "name": "Accent",
+          "snippet": "const Accent = () => <StatCard icon={Activity} label=\"Active Sessions\" value=\"842\" variant=\"accent\" />;"
+        },
+        {
+          "id": "components-cards-statcard--revenue",
+          "name": "Revenue",
+          "snippet": "const Revenue = () => <StatCard icon={DollarSign} label=\"Total Revenue\" value=\"$84,290\" variant=\"default\" />;"
+        },
+        {
+          "id": "components-cards-statcard--orders",
+          "name": "Orders",
+          "snippet": "const Orders = () => <StatCard icon={ShoppingCart} label=\"Total Orders\" value=\"3,248\" variant=\"default\" />;"
+        }
+      ],
+      "import": "import { StatCard } from \"saas-dashboard\";"
+    },
+    "components-data-display-pagination": {
+      "id": "components-data-display-pagination",
+      "name": "Pagination",
+      "path": "./src/components/shared/data-display/Pagination.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Pagination",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\data-display\\Pagination.tsx",
+        "actualName": "Pagination",
+        "exportName": "Pagination",
+        "props": {
+          "page": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "totalPages": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "onPageChange": {
+            "required": true,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(page: number) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "number"
+                    },
+                    "name": "page"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-data-display-pagination--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Pagination page={1} totalPages={5} onPageChange={() => {}} />;"
+        },
+        {
+          "id": "components-data-display-pagination--interactive",
+          "name": "Interactive",
+          "snippet": "const Interactive = () => {\r\n    const [page, setPage] = useState(args.page)\r\n\r\n    return <Pagination totalPages={10} page={page} onPageChange={setPage} />;\r\n};"
+        },
+        {
+          "id": "components-data-display-pagination--first-page",
+          "name": "First Page",
+          "snippet": "const FirstPage = () => <Pagination page={1} totalPages={10} onPageChange={() => {}} />;"
+        },
+        {
+          "id": "components-data-display-pagination--middle-page",
+          "name": "Middle Page",
+          "snippet": "const MiddlePage = () => <Pagination page={5} totalPages={10} onPageChange={() => {}} />;"
+        },
+        {
+          "id": "components-data-display-pagination--last-page",
+          "name": "Last Page",
+          "snippet": "const LastPage = () => <Pagination page={10} totalPages={10} onPageChange={() => {}} />;"
+        },
+        {
+          "id": "components-data-display-pagination--many-pages",
+          "name": "Many Pages",
+          "snippet": "const ManyPages = () => <Pagination page={12} totalPages={50} onPageChange={() => {}} />;"
+        }
+      ],
+      "import": "import { Pagination } from \"saas-dashboard\";"
+    },
+    "components-data-display-table": {
+      "id": "components-data-display-table",
+      "name": "Table",
+      "path": "./src/components/shared/data-display/Table.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Table",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\data-display\\Table.tsx",
+        "actualName": "Table",
+        "exportName": "Table"
+      },
+      "stories": [
+        {
+          "id": "components-data-display-table--default",
+          "name": "Default",
+          "snippet": "const Default = () => (\r\n  <div className=\"w-190\">\r\n    <Table>\r\n      <TableHeader>\r\n        <TableRow>\r\n          <TableHead>User</TableHead>\r\n          <TableHead>Status</TableHead>\r\n          <TableHead>Plan</TableHead>\r\n          <TableHead className=\"text-right\">Revenue</TableHead>\r\n        </TableRow>\r\n      </TableHeader>\r\n\r\n      <TableBody>\r\n        <TableRow>\r\n          <TableCell className=\"font-medium\">\r\n            Anna Smith\r\n          </TableCell>\r\n          <TableCell>Active</TableCell>\r\n          <TableCell>Pro</TableCell>\r\n          <TableCell className=\"text-right\">\r\n            $1,920\r\n          </TableCell>\r\n        </TableRow>\r\n\r\n        <TableRow>\r\n          <TableCell className=\"font-medium\">\r\n            Michael Kim\r\n          </TableCell>\r\n          <TableCell>Active</TableCell>\r\n          <TableCell>Enterprise</TableCell>\r\n          <TableCell className=\"text-right\">\r\n            $4,280\r\n          </TableCell>\r\n        </TableRow>\r\n\r\n        <TableRow>\r\n          <TableCell className=\"font-medium\">\r\n            Sarah Johnson\r\n          </TableCell>\r\n          <TableCell>Inactive</TableCell>\r\n          <TableCell>Free</TableCell>\r\n          <TableCell className=\"text-right\">\r\n            $0\r\n          </TableCell>\r\n        </TableRow>\r\n      </TableBody>\r\n    </Table>\r\n  </div>\r\n);"
+        },
+        {
+          "id": "components-data-display-table--with-long-content",
+          "name": "With Long Content",
+          "snippet": "const WithLongContent = () => (\r\n  <div className=\"w-190\">\r\n    <Table>\r\n      <TableHeader>\r\n        <TableRow>\r\n          <TableHead>Customer</TableHead>\r\n          <TableHead>Email</TableHead>\r\n          <TableHead>Subscription</TableHead>\r\n          <TableHead className=\"text-right\">\r\n            Monthly Revenue\r\n          </TableHead>\r\n        </TableRow>\r\n      </TableHeader>\r\n\r\n      <TableBody>\r\n        <TableRow>\r\n          <TableCell className=\"font-medium\">\r\n            Alexander Anderson\r\n          </TableCell>\r\n          <TableCell>\r\n            alexander.anderson@example.com\r\n          </TableCell>\r\n          <TableCell>Enterprise</TableCell>\r\n          <TableCell className=\"text-right\">\r\n            $8,420\r\n          </TableCell>\r\n        </TableRow>\r\n\r\n        <TableRow>\r\n          <TableCell className=\"font-medium\">\r\n            Christopher Williams\r\n          </TableCell>\r\n          <TableCell>\r\n            christopher.williams@example.com\r\n          </TableCell>\r\n          <TableCell>Professional</TableCell>\r\n          <TableCell className=\"text-right\">\r\n            $2,840\r\n          </TableCell>\r\n        </TableRow>\r\n      </TableBody>\r\n    </Table>\r\n  </div>\r\n);"
+        },
+        {
+          "id": "components-data-display-table--empty",
+          "name": "Empty",
+          "snippet": "const Empty = () => (\r\n  <div className=\"w-190\">\r\n    <Table>\r\n      <TableHeader>\r\n        <TableRow>\r\n          <TableHead>User</TableHead>\r\n          <TableHead>Status</TableHead>\r\n          <TableHead>Plan</TableHead>\r\n          <TableHead className=\"text-right\">\r\n            Revenue\r\n          </TableHead>\r\n        </TableRow>\r\n      </TableHeader>\r\n\r\n      <TableBody>\r\n        <TableRow>\r\n          <TableCell\r\n            colSpan={4}\r\n            className=\"py-12 text-center text-(--text-secondary)\"\r\n          >\r\n            No users found.\r\n          </TableCell>\r\n        </TableRow>\r\n      </TableBody>\r\n    </Table>\r\n  </div>\r\n);"
+        }
+      ],
+      "import": "import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from \"saas-dashboard\";"
+    },
+    "components-feedback-badge": {
+      "id": "components-feedback-badge",
+      "name": "Badge",
+      "path": "./src/components/shared/feedback/Badge.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component definition found",
+        "message": "File: D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\feedback\\Badge.tsx\nError:\n\".\" is not exported under no conditions from package D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority (see exports field in D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority\\package.json)\nYou can debug your component file in this playground: https://react-docgen.dev/playground\nCode:\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  \"inline-flex items-center rounded-full px-3 py-1 text-xs font-medium whitespace-nowrap\",\n  {\n    variants: {\n      variant: {\n        success: \"bg-[var(--success-bg)] text-[var(--success)]\",\n        danger: \"bg-[var(--danger-bg)] text-[var(--danger)]\",\n        warning: \"bg-[var(--warning-bg)] text-[var(--warning-text)]\",\n        primary: \"bg-[var(--primary-bg)] text-[var(--primary-dark)]\",\n        neutral: \"bg-[var(--search-bg)] text-[var(--text-secondary)] border border-[var(--border)]\",\n        \"solid-primary\": \"rounded-md bg-[var(--primary)] text-white font-semibold\",\n        \"solid-dark\": \"rounded-md bg-[var(--primary-tooltip)] text-white font-semibold\",\n      },\n    },\n    defaultVariants: {\n      variant: \"neutral\",\n    },\n  }\n)\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof badgeVariants> {}\n\nfunction Badge({ className, variant, ...props }: BadgeProps) {\n  return <span data-slot=\"badge\" className={cn(badgeVariants({ variant }), className)} {...props} />\n}\n\nexport { Badge, badgeVariants }\n"
+      },
+      "stories": [
+        {
+          "id": "components-feedback-badge--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Badge variant=\"neutral\">Active</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--success",
+          "name": "Success",
+          "snippet": "const Success = () => <Badge variant=\"success\">Active</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--danger",
+          "name": "Danger",
+          "snippet": "const Danger = () => <Badge variant=\"danger\">Failed</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--warning",
+          "name": "Warning",
+          "snippet": "const Warning = () => <Badge variant=\"warning\">Pending</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--primary",
+          "name": "Primary",
+          "snippet": "const Primary = () => <Badge variant=\"primary\">Pro</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--solid-primary",
+          "name": "Solid Primary",
+          "snippet": "const SolidPrimary = () => <Badge variant=\"solid-primary\">Premium</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--solid-dark",
+          "name": "Solid Dark",
+          "snippet": "const SolidDark = () => <Badge variant=\"solid-dark\">Admin</Badge>;"
+        },
+        {
+          "id": "components-feedback-badge--all-variants",
+          "name": "All Variants",
+          "snippet": "const AllVariants = () => (\r\n  <div className=\"flex flex-wrap items-center gap-2\">\r\n    <Badge variant=\"success\">Active</Badge>\r\n    <Badge variant=\"danger\">Failed</Badge>\r\n    <Badge variant=\"warning\">Pending</Badge>\r\n    <Badge variant=\"primary\">Pro</Badge>\r\n    <Badge variant=\"neutral\">Draft</Badge>\r\n    <Badge variant=\"solid-primary\">Premium</Badge>\r\n    <Badge variant=\"solid-dark\">Admin</Badge>\r\n  </div>\r\n);"
+        }
+      ],
+      "import": "import { Badge } from \"saas-dashboard\";"
+    },
+    "components-feedback-notificationbadge": {
+      "id": "components-feedback-notificationbadge",
+      "name": "NotificationBadgeStory",
+      "path": "./src/components/shared/feedback/NotificationBadge.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "NotificationBadge",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\feedback\\NotificationBadge.tsx",
+        "actualName": "NotificationBadge",
+        "exportName": "NotificationBadge",
+        "props": {
+          "count": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "max": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "9",
+              "computed": false
+            }
+          },
+          "children": {
+            "required": true,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-feedback-notificationbadge--default",
+          "name": "Default",
+          "snippet": "const Default = () => <NotificationBadge count={3} max={9} />;"
+        },
+        {
+          "id": "components-feedback-notificationbadge--no-notifications",
+          "name": "No Notifications",
+          "snippet": "const NoNotifications = () => <NotificationBadge count={0} max={9} />;"
+        },
+        {
+          "id": "components-feedback-notificationbadge--many-notifications",
+          "name": "Many Notifications",
+          "snippet": "const ManyNotifications = () => <NotificationBadge count={24} max={9} />;"
+        },
+        {
+          "id": "components-feedback-notificationbadge--custom-max",
+          "name": "Custom Max",
+          "snippet": "const CustomMax = () => <NotificationBadge count={125} max={99} />;"
+        }
+      ],
+      "import": "import { Bell } from \"lucide-react\";\nimport { NotificationBadge } from \"saas-dashboard\";"
+    },
+    "components-feedback-statusdot": {
+      "id": "components-feedback-statusdot",
+      "name": "StatusDot",
+      "path": "./src/components/shared/feedback/StatusDot.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "No component definition found",
+        "message": "File: D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\feedback\\StatusDot.tsx\nError:\n\".\" is not exported under no conditions from package D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority (see exports field in D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\class-variance-authority\\package.json)\nYou can debug your component file in this playground: https://react-docgen.dev/playground\nCode:\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst dotVariants = cva(\"size-[7px] rounded-full\", {\n  variants: {\n    variant: {\n      online: \"bg-[var(--success)]\",\n      offline: \"bg-[var(--text-muted)]\",\n      busy: \"bg-[var(--danger)]\",\n      away: \"bg-[var(--warning)]\",\n    },\n  },\n  defaultVariants: {\n    variant: \"online\",\n  },\n})\n\nexport interface StatusDotProps extends VariantProps<typeof dotVariants> {\n  label: string\n  className?: string\n}\n\nfunction StatusDot({ variant, label, className }: StatusDotProps) {\n  return (\n    <span className={cn(\"inline-flex items-center gap-1.5 text-[12.5px] text-(--text)\", className)}>\n      <span className={dotVariants({ variant })} />\n      {label}\n    </span>\n  )\n}\n\nexport { StatusDot }\n"
+      },
+      "stories": [
+        {
+          "id": "components-feedback-statusdot--online",
+          "name": "Online",
+          "snippet": "const Online = () => <StatusDot variant=\"online\" label=\"Online\" />;"
+        },
+        {
+          "id": "components-feedback-statusdot--offline",
+          "name": "Offline",
+          "snippet": "const Offline = () => <StatusDot variant=\"offline\" label=\"Offline\" />;"
+        },
+        {
+          "id": "components-feedback-statusdot--busy",
+          "name": "Busy",
+          "snippet": "const Busy = () => <StatusDot variant=\"busy\" label=\"Busy\" />;"
+        },
+        {
+          "id": "components-feedback-statusdot--away",
+          "name": "Away",
+          "snippet": "const Away = () => <StatusDot variant=\"away\" label=\"Away\" />;"
+        },
+        {
+          "id": "components-feedback-statusdot--all-statuses",
+          "name": "All Statuses",
+          "snippet": "const AllStatuses = () => (\r\n  <div className=\"flex flex-col gap-3\">\r\n    <StatusDot\r\n      variant=\"online\"\r\n      label=\"Online\"\r\n    />\r\n\r\n    <StatusDot\r\n      variant=\"offline\"\r\n      label=\"Offline\"\r\n    />\r\n\r\n    <StatusDot\r\n      variant=\"busy\"\r\n      label=\"Busy\"\r\n    />\r\n\r\n    <StatusDot\r\n      variant=\"away\"\r\n      label=\"Away\"\r\n    />\r\n  </div>\r\n);"
+        }
+      ],
+      "import": "import { StatusDot } from \"saas-dashboard\";"
+    },
+    "components-feedback-tooltip": {
+      "id": "components-feedback-tooltip",
+      "name": "TooltipStory",
+      "path": "./src/components/shared/feedback/Toaster.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Tooltip",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\feedback\\Tooltip.tsx",
+        "actualName": "Tooltip",
+        "exportName": "Tooltip",
+        "props": {
+          "children": {
+            "required": true,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "content": {
+            "required": true,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "title": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "side": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"top\" | \"right\" | \"bottom\" | \"left\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"top\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"right\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"bottom\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"left\""
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"top\"",
+              "computed": false
+            }
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "delay": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "200",
+              "computed": false
+            }
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-feedback-tooltip--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Tooltip content=\"This is a helpful tooltip.\" side=\"top\" />;"
+        },
+        {
+          "id": "components-feedback-tooltip--with-title",
+          "name": "With Title",
+          "snippet": "const WithTitle = () => <Tooltip\r\n    title=\"More information\"\r\n    content=\"Additional details about this feature.\"\r\n    side=\"top\" />;"
+        },
+        {
+          "id": "components-feedback-tooltip--right",
+          "name": "Right",
+          "snippet": "const Right = () => <Tooltip content=\"This tooltip appears on the right.\" side=\"right\" />;"
+        },
+        {
+          "id": "components-feedback-tooltip--bottom",
+          "name": "Bottom",
+          "snippet": "const Bottom = () => <Tooltip content=\"This tooltip appears below the trigger.\" side=\"bottom\" />;"
+        }
+      ],
+      "import": "import { Info } from \"lucide-react\";\nimport { Tooltip, TooltipProvider } from \"saas-dashboard\";"
+    },
+    "components-forms-checkbox": {
+      "id": "components-forms-checkbox",
+      "name": "Checkbox",
+      "path": "./src/components/shared/forms/Checkbox.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Checkbox",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\Checkbox.tsx",
+        "actualName": "Checkbox",
+        "exportName": "Checkbox"
+      },
+      "stories": [
+        {
+          "id": "components-forms-checkbox--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Checkbox checked={false} />;"
+        },
+        {
+          "id": "components-forms-checkbox--checked",
+          "name": "Checked",
+          "snippet": "const Checked = () => <Checkbox checked />;"
+        },
+        {
+          "id": "components-forms-checkbox--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <Checkbox disabled />;"
+        },
+        {
+          "id": "components-forms-checkbox--disabled-checked",
+          "name": "Disabled Checked",
+          "snippet": "const DisabledChecked = () => <Checkbox disabled checked />;"
+        }
+      ],
+      "import": "import { Checkbox } from \"saas-dashboard\";"
+    },
+    "components-forms-dateinput": {
+      "id": "components-forms-dateinput",
+      "name": "DateInput",
+      "path": "./src/components/shared/forms/DateInput.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "DateInput",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\DateInput.tsx",
+        "actualName": "DateInput",
+        "exportName": "DateInput",
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "components-forms-dateinput--default",
+          "name": "Default",
+          "snippet": "const Default = () => <DateInput placeholder=\"Select a date\" />;"
+        },
+        {
+          "id": "components-forms-dateinput--with-value",
+          "name": "With Value",
+          "snippet": "const WithValue = () => <DateInput value=\"2026-08-10\" />;"
+        },
+        {
+          "id": "components-forms-dateinput--with-error",
+          "name": "With Error",
+          "snippet": "const WithError = () => <DateInput value=\"2026-08-10\" error=\"Please select a valid date.\" />;"
+        },
+        {
+          "id": "components-forms-dateinput--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <DateInput value=\"2026-08-10\" disabled />;"
+        }
+      ],
+      "import": "import { DateInput } from \"saas-dashboard\";"
+    },
+    "components-forms-fileupload": {
+      "id": "components-forms-fileupload",
+      "name": "FileUpload",
+      "path": "./src/components/shared/forms/FileUpload.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "FileUpload",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\FileUpload.tsx",
+        "actualName": "FileUpload",
+        "exportName": "FileUpload",
+        "props": {
+          "onFilesSelected": {
+            "required": true,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(files: FileList) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "FileList"
+                    },
+                    "name": "files"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "accept": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\".csv\"",
+              "computed": false
+            }
+          },
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"Drop a CSV or click to browse\"",
+              "computed": false
+            }
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "disabled": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-forms-fileupload--default",
+          "name": "Default",
+          "snippet": "const Default = () => <FileUpload\r\n    onFilesSelected={fn()}\r\n    accept=\".csv\"\r\n    label=\"Drop a CSV or click to browse\" />;"
+        },
+        {
+          "id": "components-forms-fileupload--excel-files",
+          "name": "Excel Files",
+          "snippet": "const ExcelFiles = () => <FileUpload\r\n    onFilesSelected={fn()}\r\n    accept=\".xlsx,.xls\"\r\n    label=\"Drop an Excel file or click to browse\" />;"
+        },
+        {
+          "id": "components-forms-fileupload--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <FileUpload\r\n    onFilesSelected={fn()}\r\n    accept=\".csv\"\r\n    label=\"File upload disabled\"\r\n    disabled />;"
+        }
+      ],
+      "import": "import { FileUpload } from \"saas-dashboard\";"
+    },
+    "components-forms-input": {
+      "id": "components-forms-input",
+      "name": "Input",
+      "path": "./src/components/shared/forms/Input.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Input",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\Input.tsx",
+        "actualName": "Input",
+        "exportName": "Input",
+        "props": {
+          "error": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "startIcon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "endIcon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-forms-input--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Input placeholder=\"Enter your name\" type=\"text\" />;"
+        },
+        {
+          "id": "components-forms-input--with-start-icon",
+          "name": "With Start Icon",
+          "snippet": "const WithStartIcon = () => <Input placeholder=\"Search...\" type=\"search\" startIcon={<Search size={16} />} />;"
+        },
+        {
+          "id": "components-forms-input--with-end-icon",
+          "name": "With End Icon",
+          "snippet": "const WithEndIcon = () => <Input placeholder=\"Enter password\" type=\"password\" endIcon={<Eye size={16} />} />;"
+        },
+        {
+          "id": "components-forms-input--with-error",
+          "name": "With Error",
+          "snippet": "const WithError = () => <Input\r\n    value=\"invalid@email\"\r\n    type=\"email\"\r\n    error=\"Please enter a valid email address.\" />;"
+        },
+        {
+          "id": "components-forms-input--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <Input value=\"Disabled input\" disabled />;"
+        }
+      ],
+      "import": "import { Eye, Search } from \"lucide-react\";\nimport { Input } from \"saas-dashboard\";"
+    },
+    "components-forms-passwordinput": {
+      "id": "components-forms-passwordinput",
+      "name": "PasswordInput",
+      "path": "./src/components/shared/forms/PasswordInput.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "PasswordInput",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\PasswordInput.tsx",
+        "actualName": "PasswordInput",
+        "exportName": "PasswordInput",
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "components-forms-passwordinput--default",
+          "name": "Default",
+          "snippet": "const Default = () => <PasswordInput placeholder=\"Enter your password\" />;"
+        },
+        {
+          "id": "components-forms-passwordinput--with-error",
+          "name": "With Error",
+          "snippet": "const WithError = () => <PasswordInput\r\n    placeholder=\"Enter your password\"\r\n    error=\"Password must be at least 8 characters.\" />;"
+        },
+        {
+          "id": "components-forms-passwordinput--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <PasswordInput placeholder=\"Password\" disabled />;"
+        }
+      ],
+      "import": "import { PasswordInput } from \"saas-dashboard\";"
+    },
+    "components-forms-radiogroup": {
+      "id": "components-forms-radiogroup",
+      "name": "RadioGroupStory",
+      "path": "./src/components/shared/forms/RadioGroup.stories.tsx",
+      "jsDocTags": {},
+      "description": "Provides a shared state to a series of radio buttons.\nRenders a `<div>` element.\n\nDocumentation: [Base UI Radio Group](https://base-ui.com/react/components/radio)",
+      "reactDocgen": {
+        "description": "Provides a shared state to a series of radio buttons.\nRenders a `<div>` element.\n\nDocumentation: [Base UI Radio Group](https://base-ui.com/react/components/radio)",
+        "methods": [],
+        "displayName": "RadioGroup",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\node_modules\\@base-ui\\react\\radio-group\\RadioGroup.mjs",
+        "actualName": "RadioGroup",
+        "exportName": "RadioGroup"
+      },
+      "stories": [
+        {
+          "id": "components-forms-radiogroup--default",
+          "name": "Default",
+          "snippet": "const Default = () => <RadioGroup defaultValue=\"monthly\" disabled={false} />;"
+        },
+        {
+          "id": "components-forms-radiogroup--yearly-selected",
+          "name": "Yearly Selected",
+          "snippet": "const YearlySelected = () => <RadioGroup defaultValue=\"yearly\" disabled={false} />;"
+        },
+        {
+          "id": "components-forms-radiogroup--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <RadioGroup defaultValue=\"monthly\" disabled />;"
+        }
+      ],
+      "import": "import { RadioGroup, RadioItem } from \"saas-dashboard\";"
+    },
+    "components-forms-searchinput": {
+      "id": "components-forms-searchinput",
+      "name": "SearchInput",
+      "path": "./src/components/shared/forms/SearchInput.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "SearchInput",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\SearchInput.tsx",
+        "actualName": "SearchInput",
+        "exportName": "SearchInput",
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "components-forms-searchinput--default",
+          "name": "Default",
+          "snippet": "const Default = () => <SearchInput placeholder=\"Search...\" />;"
+        },
+        {
+          "id": "components-forms-searchinput--with-error",
+          "name": "With Error",
+          "snippet": "const WithError = () => <SearchInput placeholder=\"Search...\" error=\"Search failed. Please try again.\" />;"
+        },
+        {
+          "id": "components-forms-searchinput--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <SearchInput placeholder=\"Search...\" disabled />;"
+        }
+      ],
+      "import": "import { SearchInput } from \"saas-dashboard\";"
+    },
+    "components-forms-select": {
+      "id": "components-forms-select",
+      "name": "Select",
+      "path": "./src/components/shared/forms/Select.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Select",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\Select.tsx",
+        "actualName": "Select",
+        "exportName": "Select",
+        "props": {
+          "error": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-forms-select--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Select defaultValue=\"\">{options}</Select>;"
+        },
+        {
+          "id": "components-forms-select--with-value",
+          "name": "With Value",
+          "snippet": "const WithValue = () => <Select defaultValue=\"de\">{options}</Select>;"
+        },
+        {
+          "id": "components-forms-select--with-error",
+          "name": "With Error",
+          "snippet": "const WithError = () => <Select error=\"Please select a country.\">{options}</Select>;"
+        },
+        {
+          "id": "components-forms-select--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <Select disabled defaultValue=\"de\">{options}</Select>;"
+        }
+      ],
+      "import": "import { Select } from \"saas-dashboard\";"
+    },
+    "components-forms-switch": {
+      "id": "components-forms-switch",
+      "name": "Switch",
+      "path": "./src/components/shared/forms/Switch.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Switch",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\Switch.tsx",
+        "actualName": "Switch",
+        "exportName": "Switch"
+      },
+      "stories": [
+        {
+          "id": "components-forms-switch--default",
+          "name": "Default",
+          "snippet": "const Default = () => {\r\n    const [checked, setChecked] = useState(args.checked ?? false)\r\n\r\n    return <Switch checked={checked} onCheckedChange={setChecked} />;\r\n};"
+        },
+        {
+          "id": "components-forms-switch--checked",
+          "name": "Checked",
+          "snippet": "const Checked = () => {\r\n    const [checked, setChecked] = useState(args.checked ?? false)\r\n\r\n    return <Switch checked={checked} onCheckedChange={setChecked} />;\r\n};"
+        },
+        {
+          "id": "components-forms-switch--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => {\r\n    const [checked, setChecked] = useState(args.checked ?? false)\r\n\r\n    return <Switch disabled checked={checked} onCheckedChange={setChecked} />;\r\n};"
+        },
+        {
+          "id": "components-forms-switch--checked-disabled",
+          "name": "Checked Disabled",
+          "snippet": "const CheckedDisabled = () => {\r\n    const [checked, setChecked] = useState(args.checked ?? false)\r\n\r\n    return <Switch disabled checked={checked} onCheckedChange={setChecked} />;\r\n};"
+        }
+      ],
+      "import": "import { Switch } from \"saas-dashboard\";"
+    },
+    "components-forms-taginput": {
+      "id": "components-forms-taginput",
+      "name": "TagInputStory",
+      "path": "./src/components/shared/forms/TagInput.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "TagInput",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\TagInput.tsx",
+        "actualName": "TagInput",
+        "exportName": "TagInput",
+        "props": {
+          "value": {
+            "required": true,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "string"
+                }
+              ],
+              "raw": "string[]"
+            },
+            "description": ""
+          },
+          "onChange": {
+            "required": true,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(tags: string[]) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "Array",
+                      "elements": [
+                        {
+                          "name": "string"
+                        }
+                      ],
+                      "raw": "string[]"
+                    },
+                    "name": "tags"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "placeholder": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"Add...\"",
+              "computed": false
+            }
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "disabled": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-forms-taginput--default",
+          "name": "Default",
+          "snippet": "const Default = () => <TagInput initialTags={[]} placeholder=\"Add a tag...\" disabled={false} />;"
+        },
+        {
+          "id": "components-forms-taginput--with-tags",
+          "name": "With Tags",
+          "snippet": "const WithTags = () => <TagInput\r\n    initialTags={[\"React\", \"TypeScript\", \"Storybook\"]}\r\n    placeholder=\"Add a tag...\"\r\n    disabled={false} />;"
+        },
+        {
+          "id": "components-forms-taginput--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <TagInput initialTags={[\"React\", \"TypeScript\"]} placeholder=\"Add a tag...\" disabled />;"
+        }
+      ],
+      "import": "import { TagInput } from \"saas-dashboard\";"
+    },
+    "components-forms-textarea": {
+      "id": "components-forms-textarea",
+      "name": "Textarea",
+      "path": "./src/components/shared/forms/Textarea.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Textarea",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\forms\\Textarea.tsx",
+        "actualName": "Textarea",
+        "exportName": "Textarea",
+        "props": {
+          "error": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "rows": {
+            "defaultValue": {
+              "value": "3",
+              "computed": false
+            },
+            "required": false
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-forms-textarea--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Textarea placeholder=\"Write something...\" rows={3} />;"
+        },
+        {
+          "id": "components-forms-textarea--with-error",
+          "name": "With Error",
+          "snippet": "const WithError = () => <Textarea placeholder=\"Write something...\" rows={3} error=\"This field is required.\" />;"
+        },
+        {
+          "id": "components-forms-textarea--disabled",
+          "name": "Disabled",
+          "snippet": "const Disabled = () => <Textarea placeholder=\"This field is disabled\" rows={3} disabled />;"
+        },
+        {
+          "id": "components-forms-textarea--with-content",
+          "name": "With Content",
+          "snippet": "const WithContent = () => <Textarea\r\n    placeholder=\"Write something...\"\r\n    rows={3}\r\n    defaultValue=\"This is an example of a textarea with some existing content.\" />;"
+        }
+      ],
+      "import": "import { Textarea } from \"saas-dashboard\";"
+    },
+    "components-navigation-tabs": {
+      "id": "components-navigation-tabs",
+      "name": "TabsStory",
+      "path": "./src/components/shared/navigation/Tabs.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Tabs",
+        "definedInFile": "D:\\git Projects\\Analytics Dashboard\\saas-dashboard\\src\\components\\shared\\navigation\\Tabs.tsx",
+        "actualName": "Tabs",
+        "exportName": "Tabs",
+        "props": {
+          "items": {
+            "required": true,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "TabItem"
+                }
+              ],
+              "raw": "TabItem[]"
+            },
+            "description": ""
+          },
+          "value": {
+            "required": true,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "onChange": {
+            "required": true,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(value: string) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "string"
+                    },
+                    "name": "value"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "className": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "components-navigation-tabs--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Tabs items={items} value=\"overview\" />;"
+        },
+        {
+          "id": "components-navigation-tabs--analytics",
+          "name": "Analytics",
+          "snippet": "const Analytics = () => <Tabs items={items} value=\"analytics\" />;"
+        },
+        {
+          "id": "components-navigation-tabs--reports",
+          "name": "Reports",
+          "snippet": "const Reports = () => <Tabs items={items} value=\"reports\" />;"
+        }
+      ],
+      "import": "import { Tabs } from \"saas-dashboard\";"
+    }
+  },
+  "meta": {
+    "docgen": "react-docgen",
+    "durationMs": 3682
+  }
+}

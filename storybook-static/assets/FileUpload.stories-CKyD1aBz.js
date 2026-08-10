@@ -1,0 +1,17 @@
+import{a as e,n as t}from"./rolldown-runtime-DkW27tQK.js";import{d as n}from"./iframe--m5YJ3pT.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{n as i,t as a}from"./createLucideIcon-DTLDqpze.js";import{n as o,t as s}from"./utils-Dm4OyE3Q.js";var c,l;function u(){return(u=t((()=>{i(),c=[[`path`,{d:`M12 3v12`,key:`1x0j5s`}],[`path`,{d:`m17 8-5-5-5 5`,key:`7q97r8`}],[`path`,{d:`M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4`,key:`ih7n3h`}]],l=a(`upload`,c)})))()}function d({onFilesSelected:e,accept:t=`.csv`,label:n=`Drop a CSV or click to browse`,className:r,disabled:i}){let a=f.useRef(null),[o,c]=f.useState(!1);function u(t){t.preventDefault(),c(!1),!i&&t.dataTransfer.files?.length&&e(t.dataTransfer.files)}return(0,p.jsxs)(`div`,{role:`button`,tabIndex:0,onClick:()=>!i&&a.current?.click(),onKeyDown:e=>e.key===`Enter`&&a.current?.click(),onDragOver:e=>{e.preventDefault(),i||c(!0)},onDragLeave:()=>c(!1),onDrop:u,"data-slot":`file-upload`,className:s(`flex cursor-pointer items-center gap-2 rounded-[9px] border-[1.5px] border-dashed px-3.5 py-2.5 transition-colors`,`bg-(--search-bg) border-(--border)`,o&&`border-(--primary) bg-(--primary-bg)`,i&&`cursor-not-allowed opacity-60`,r),children:[(0,p.jsx)(l,{size:16,className:`text-(--text-secondary)`}),(0,p.jsx)(`span`,{className:`text-[13px] text-(--text-secondary)`,children:n}),(0,p.jsx)(`input`,{ref:a,type:`file`,accept:t,disabled:i,className:`hidden`,onChange:t=>t.target.files&&e(t.target.files)})]})}var f,p;function m(){return(m=t((()=>{f=e(n(),1),u(),o(),p=r(),d.__docgenInfo={description:``,methods:[],displayName:`FileUpload`,props:{onFilesSelected:{required:!0,tsType:{name:`signature`,type:`function`,raw:`(files: FileList) => void`,signature:{arguments:[{type:{name:`FileList`},name:`files`}],return:{name:`void`}}},description:``},accept:{required:!1,tsType:{name:`string`},description:``,defaultValue:{value:`".csv"`,computed:!1}},label:{required:!1,tsType:{name:`string`},description:``,defaultValue:{value:`"Drop a CSV or click to browse"`,computed:!1}},className:{required:!1,tsType:{name:`string`},description:``},disabled:{required:!1,tsType:{name:`boolean`},description:``}}}})))()}var h,g,_,v,y,b;function x(){return(x=t((()=>{m(),{fn:h}=__STORYBOOK_MODULE_TEST__,g={title:`Components/Forms/FileUpload`,component:d,parameters:{layout:`centered`},tags:[`autodocs`],args:{onFilesSelected:h()},argTypes:{accept:{control:`text`},label:{control:`text`},disabled:{control:`boolean`},className:{control:!1,table:{disable:!0}}}},_={args:{accept:`.csv`,label:`Drop a CSV or click to browse`}},v={args:{accept:`.xlsx,.xls`,label:`Drop an Excel file or click to browse`}},y={args:{accept:`.csv`,label:`File upload disabled`,disabled:!0}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  args: {
+    accept: ".csv",
+    label: "Drop a CSV or click to browse"
+  }
+}`,..._.parameters?.docs?.source}}},v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+  args: {
+    accept: ".xlsx,.xls",
+    label: "Drop an Excel file or click to browse"
+  }
+}`,...v.parameters?.docs?.source}}},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  args: {
+    accept: ".csv",
+    label: "File upload disabled",
+    disabled: true
+  }
+}`,...y.parameters?.docs?.source}}},b=[`Default`,`ExcelFiles`,`Disabled`]})))()}x();export{_ as Default,y as Disabled,v as ExcelFiles,b as __namedExportsOrder,g as default};

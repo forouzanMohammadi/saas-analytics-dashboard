@@ -1,0 +1,31 @@
+import{a as e,n as t}from"./rolldown-runtime-DkW27tQK.js";import{d as n}from"./iframe--m5YJ3pT.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{n as i,t as a}from"./utils-Dm4OyE3Q.js";import{_ as o,d as s,f as c,g as l,i as ee,l as u,n as d,o as f,t as p,u as te}from"./useRenderElement-DrqovXNa.js";import{i as m,n as ne,r as re,t as h}from"./useButton-ClANZo9K.js";import{a as ie,d as g,n as ae,o as _,t as oe,u as v}from"./useBaseUiId-CQgo_aeV.js";import{_ as se,a as y,b as ce,c as le,d as ue,f as de,g as b,h as x,i as fe,l as S,m as C,n as pe,o as me,r as w,s as T,t as E,u as he,v as D,y as ge}from"./useValueChanged-whkWkLYl.js";import{n as _e,t as O}from"./useLabelableId-R-cvwQRP.js";function k(){let e=A.useContext(j);if(e===void 0)throw Error(s(63));return e}var A,j;function M(){return(M=t((()=>{c(),A=e(n(),1),j=A.createContext(void 0)})))()}var N;function P(){return(P=t((()=>{x(),N={...C,checked(e){return e?{"data-checked":``}:{"data-unchecked":``}}}})))()}var F,I,L;function R(){return(R=t((()=>{F=e(n(),1),b(),u(),l(),D(),f(),p(),oe(),h(),M(),P(),m(),ue(),S(),T(),y(),w(),O(),_(),v(),E(),I=r(),L=F.forwardRef(function(e,t){let{checked:n,className:r,defaultChecked:i,"aria-labelledby":a,form:s,id:c,inputRef:l,name:u,nativeButton:f=!1,onCheckedChange:p,readOnly:m=!1,required:h=!1,disabled:_=!1,render:oe,uncheckedValue:v,value:y,style:ue,...b}=e,{clearErrors:x}=le(),{state:S,setTouched:C,setDirty:w,validityData:T,setFilled:E,setFocused:D,validationMode:O,disabled:k,name:A,validation:M}=de(),{labelId:P}=me(),L=k||_,R=A??u,z=F.useRef(null),B=te(z,l,M.inputRef),V=F.useRef(null),H=ae(),U=_e({id:c,implicit:!1,controlRef:V}),W=f?void 0:U,[G,K]=se({controlled:n,default:!!i,name:`Switch`,state:`checked`});he(V,H,G,void 0,!L,u),o(()=>{z.current&&E(z.current.checked)},[E]),pe(G,()=>{x(R),w(G!==T.initialValue),E(G),M.change(G)});let{getButtonProps:q,buttonRef:J}=ne({disabled:L,native:f}),Y=fe(a,P,z,!f,W),X={id:f?U:H,role:`switch`,"aria-checked":G,"aria-readonly":m||void 0,"aria-required":h||void 0,"aria-labelledby":Y,onFocus(){L||D(!0)},onBlur(){let e=z.current;!e||L||(C(!0),D(!1),O===`onBlur`&&M.commit(e.checked))},onClick(e){if(m||L)return;e.preventDefault();let t=z.current;t&&re(t,e)}},Z={...M.getValidationProps(L),checked:G,disabled:L,form:s,id:W,name:R,required:h,style:R?ce:ge,tabIndex:-1,type:`checkbox`,"aria-hidden":!0,ref:B,onChange(e){if(e.nativeEvent.defaultPrevented)return;if(m){e.preventDefault();return}let t=e.currentTarget.checked,n=ie(g,e.nativeEvent);p?.(t,n),!n.isCanceled&&K(t)},onClick(e){e.stopPropagation()},onFocus(){V.current?.focus()},...y===void 0?ee:{value:y}},Q=F.useMemo(()=>({...S,checked:G,disabled:L,readOnly:m,required:h}),[S,G,L,m,h]),$=d(`span`,e,{state:Q,ref:[t,V,J],props:[X,b,q,e=>M.getValidationProps(L,e)],stateAttributesMapping:N});return(0,I.jsxs)(j.Provider,{value:Q,children:[$,!G&&R&&v!==void 0&&(0,I.jsx)(`input`,{type:`hidden`,form:s,name:R,value:v,disabled:L}),(0,I.jsx)(`input`,{...Z,suppressHydrationWarning:!0})]})})})))()}var z,B;function V(){return(V=t((()=>{z=e(n(),1),M(),p(),P(),B=z.forwardRef(function(e,t){let{render:n,className:r,style:i,...a}=e,o=k();return d(`span`,e,{state:o,ref:t,stateAttributesMapping:N,props:a})})})))()}function H({className:e,...t}){return(0,U.jsx)(L,{"data-slot":`switch`,className:a(`relative inline-flex h-5 w-9 items-center rounded-full bg-(--border) transition-colors outline-none`,`data-checked:bg-(--primary)`,`focus-visible:ring-3 focus-visible:ring-(--primary)/25`,`disabled:cursor-not-allowed disabled:opacity-50`,e),...t,children:(0,U.jsx)(B,{className:a(`block size-4 translate-x-0.5 rounded-full bg-white shadow-sm transition-transform`,`data-checked:translate-x-4.5`)})})}var U;function W(){return(W=t((()=>{R(),V(),i(),U=r(),H.__docgenInfo={description:``,methods:[],displayName:`Switch`}})))()}var G,K,q,J,Y,X,Z,Q;function $(){return($=t((()=>{G=n(),W(),K=r(),q={title:`Components/Forms/Switch`,component:H,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{checked:{control:`boolean`},disabled:{control:`boolean`}},args:{checked:!1}},J={render:e=>{let[t,n]=(0,G.useState)(e.checked??!1);return(0,K.jsx)(H,{...e,checked:t,onCheckedChange:n})}},Y={args:{checked:!0},render:e=>{let[t,n]=(0,G.useState)(e.checked??!1);return(0,K.jsx)(H,{...e,checked:t,onCheckedChange:n})}},X={args:{disabled:!0},render:e=>{let[t,n]=(0,G.useState)(e.checked??!1);return(0,K.jsx)(H,{...e,checked:t,onCheckedChange:n})}},Z={args:{checked:!0,disabled:!0},render:e=>{let[t,n]=(0,G.useState)(e.checked??!1);return(0,K.jsx)(H,{...e,checked:t,onCheckedChange:n})}},J.parameters={...J.parameters,docs:{...J.parameters?.docs,source:{originalSource:`{
+  render: args => {
+    const [checked, setChecked] = useState(args.checked ?? false);
+    return <Switch {...args} checked={checked} onCheckedChange={setChecked} />;
+  }
+}`,...J.parameters?.docs?.source}}},Y.parameters={...Y.parameters,docs:{...Y.parameters?.docs,source:{originalSource:`{
+  args: {
+    checked: true
+  },
+  render: args => {
+    const [checked, setChecked] = useState(args.checked ?? false);
+    return <Switch {...args} checked={checked} onCheckedChange={setChecked} />;
+  }
+}`,...Y.parameters?.docs?.source}}},X.parameters={...X.parameters,docs:{...X.parameters?.docs,source:{originalSource:`{
+  args: {
+    disabled: true
+  },
+  render: args => {
+    const [checked, setChecked] = useState(args.checked ?? false);
+    return <Switch {...args} checked={checked} onCheckedChange={setChecked} />;
+  }
+}`,...X.parameters?.docs?.source}}},Z.parameters={...Z.parameters,docs:{...Z.parameters?.docs,source:{originalSource:`{
+  args: {
+    checked: true,
+    disabled: true
+  },
+  render: args => {
+    const [checked, setChecked] = useState(args.checked ?? false);
+    return <Switch {...args} checked={checked} onCheckedChange={setChecked} />;
+  }
+}`,...Z.parameters?.docs?.source}}},Q=[`Default`,`Checked`,`Disabled`,`CheckedDisabled`]})))()}$();export{Y as Checked,Z as CheckedDisabled,J as Default,X as Disabled,Q as __namedExportsOrder,q as default};

@@ -1,0 +1,14 @@
+import{a as e,n as t}from"./rolldown-runtime-DkW27tQK.js";import{d as n}from"./iframe--m5YJ3pT.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{n as i,t as a}from"./utils-Dm4OyE3Q.js";var o,s,c;function l(){return(l=t((()=>{o=e(n(),1),i(),s=r(),c=o.forwardRef(({className:e,error:t,disabled:n,rows:r=3,...i},o)=>(0,s.jsxs)(`div`,{className:`flex flex-col gap-1.5`,children:[(0,s.jsx)(`textarea`,{ref:o,"data-slot":`textarea`,disabled:n,"aria-invalid":!!t,rows:r,className:a(`w-full resize-none rounded-[9px] border-[1.5px] border-(--border) bg-(--surface) px-3 py-2.5 text-sm text-(--text) outline-none transition-colors`,`placeholder:text-(--text-muted)`,`focus-visible:border-(--primary) focus-visible:ring-3 focus-visible:ring-(--primary)/20`,`aria-invalid:border-(--danger) aria-invalid:focus-visible:ring-(--danger)/20`,`disabled:cursor-not-allowed disabled:border-(--border) disabled:bg-(--search-bg) disabled:text-(--text-muted)`,e),...i}),t?(0,s.jsx)(`p`,{className:`text-xs text-(--danger)`,children:t}):null]})),c.displayName=`Textarea`,c.__docgenInfo={description:``,methods:[],displayName:`Textarea`,props:{error:{required:!1,tsType:{name:`string`},description:``},rows:{defaultValue:{value:`3`,computed:!1},required:!1}}}})))()}var u,d,f,p,m,h;function g(){return(g=t((()=>{l(),u={title:`Components/Forms/Textarea`,component:c,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{placeholder:{control:`text`},rows:{control:{type:`number`,min:1,max:10}},disabled:{control:`boolean`},error:{control:`text`},className:{control:!1,table:{disable:!0}}},args:{placeholder:`Write something...`,rows:3}},d={},f={args:{error:`This field is required.`}},p={args:{disabled:!0,placeholder:`This field is disabled`}},m={args:{defaultValue:`This is an example of a textarea with some existing content.`}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  args: {
+    error: "This field is required."
+  }
+}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  args: {
+    disabled: true,
+    placeholder: "This field is disabled"
+  }
+}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  args: {
+    defaultValue: "This is an example of a textarea with some existing content."
+  }
+}`,...m.parameters?.docs?.source}}},h=[`Default`,`WithError`,`Disabled`,`WithContent`]})))()}g();export{d as Default,p as Disabled,m as WithContent,f as WithError,h as __namedExportsOrder,u as default};

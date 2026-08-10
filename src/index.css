@@ -30,8 +30,9 @@ body{
   --warning-text: #854F0B;       
   --warning-bg: #FEF6E7;         
   --danger: #DC2626;   
-  --danger-bg: #FDEBEC;         
-  --disabled-text: #DBD9E2;
+  --danger-bg: #FDEBEC;   
+  --disabled-text: #8F8B9F;      
+  --disabled: #DBD9E2;
   --disabled-bg: #E8E7EC;
   --search-bg: #F6F5FB; 
   --avatar-bg: #E1DDF5; 

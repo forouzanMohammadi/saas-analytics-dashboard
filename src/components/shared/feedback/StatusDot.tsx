@@ -1,5 +1,3 @@
-// src/components/shared/StatusDot.tsx
-import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -25,7 +23,7 @@ export interface StatusDotProps extends VariantProps<typeof dotVariants> {
 
 function StatusDot({ variant, label, className }: StatusDotProps) {
   return (
-    <span className={cn("inline-flex items-center gap-1.5 text-[12.5px] text-[var(--text)]", className)}>
+    <span className={cn("inline-flex items-center gap-1.5 text-[12.5px] text-(--text)", className)}>
       <span className={dotVariants({ variant })} />
       {label}
     </span>

@@ -1,4 +1,3 @@
-// src/components/shared/feedback/Toaster.tsx
 import { CheckCircle2, XCircle, Info, AlertTriangle, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"

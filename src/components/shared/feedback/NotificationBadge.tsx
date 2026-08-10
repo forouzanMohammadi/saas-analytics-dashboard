@@ -1,4 +1,3 @@
-// src/components/shared/NotificationBadge.tsx
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -21,7 +20,7 @@ function NotificationBadge({ count, max = 9, children, className }: Notification
       <span
         className={cn(
           "absolute -top-1.5 -right-2 flex h-4 min-w-4 items-center justify-center rounded-full px-1",
-          "bg-[var(--danger)] text-[9.5px] font-semibold text-white"
+          "bg-(--danger) text-[9.5px] font-semibold text-white"
         )}
       >
         {display}
